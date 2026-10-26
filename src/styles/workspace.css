@@ -1,0 +1,271 @@
+/* Shared visual system for list and settings pages. */
+.crm-list-page {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+/* .crm-list-page > app-card { margin: 0 0 16px; } */
+
+.crm-list-page app-card .modal-card {
+  width: 100%;
+  background: var(--ui-bg-subtle);
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  box-shadow: 0 2px 7px var(--ui-shadow-card-raised);
+}
+
+/* Filter cards use the same surface, border and shadow as dashboard cards. */
+.crm-list-page app-card.filter-card .modal-card {
+  background: var(--ui-bg-subtle) !important;
+  border: 1px solid var(--ui-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 7px var(--ui-shadow-card-raised) !important;
+  /* padding: 10px; */
+}
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .crm-list-page app-card.filter-card .modal-card {
+  background: #fbfcff !important;
+  border-color: #dce3e9 !important;
+  box-shadow: 0 2px 5px rgba(31, 55, 86, .12) !important;
+}
+html.theme-white body .crm-list-page app-card.filter-card .modal-card {
+  background: #fff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 2px 7px rgba(31, 55, 86, .08) !important;
+}
+html.theme-blue body .crm-list-page app-card.filter-card .modal-card {
+  background: var(--ui-header-bg) !important;
+  border-color: #263858 !important;
+  box-shadow: none !important;
+}
+html.theme-dark body .crm-list-page app-card.filter-card .modal-card {
+  background: var(--ui-header-bg) !important;
+  border-color: var(--vsc-border) !important;
+  box-shadow: none !important;
+}
+
+.crm-list-page .field { min-width: 0; margin: 0; }
+.crm-list-page .field label {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--ui-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .35px;
+  text-transform: uppercase;
+}
+.crm-list-page .field .field-control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 11px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-bg-subtle);
+  color: var(--ui-text-secondary);
+  font: inherit;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.crm-list-page .field .field-control:focus {
+  outline: none;
+  border-color: var(--ui-primary);
+  background: var(--ui-white);
+  box-shadow: 0 0 0 3px var(--ui-focus-shadow);
+}
+.crm-list-page .field select.field-control { cursor: pointer; }
+
+.crm-list-page app-table { display: block; overflow-x: auto; }
+.crm-list-page .ux-table { width: 100%; }
+.crm-list-page .ux-table thead th {
+  position: relative;
+  padding: 10px 12px;
+  background: var(--ui-bg-subtle);
+  border-bottom: 0;
+}
+.crm-list-page .ux-table tbody td {
+  padding: 9px 12px;
+  border-bottom-color: var(--ui-border-soft);
+  color: var(--ui-text-secondary);
+}
+.crm-list-page .ux-table tbody tr:hover { background: var(--ui-bg-subtle); }
+.crm-list-page .ux-table .badge { padding: 4px 9px; font-size: 10px; }
+.crm-list-page .ux-table .empty { color: var(--ui-text-muted); }
+.crm-list-page .btn-view,
+.crm-list-page .btn-edit,
+.crm-list-page .btn-delete { height: 30px; padding: 0 7px; }
+.crm-list-page .container-btn-groups { gap: 3px; }
+.crm-list-page app-pagination .pagination {
+  padding: 10px 14px;
+  border-top: 1px solid var(--ui-border-soft);
+  color: var(--ui-text-muted);
+  font-size: 10px;
+}
+.crm-list-page app-pagination .pagination-controls { gap: 4px; }
+.crm-list-page app-pagination .pagination-controls button { color: var(--ui-text-secondary); }
+
+/* Shared tab styling mirrors the flat top navigation across every theme. */
+.mat-mdc-tab-group .mat-mdc-tab-header {
+  background: var(--ui-header-bg) !important;
+  border-bottom: 1px solid var(--ui-border-soft);
+}
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination { background: var(--ui-header-bg) !important; }
+.mat-mdc-tab-group .mat-mdc-tab {
+  box-sizing: border-box;
+  height: 48px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.mat-mdc-tab-group .mat-mdc-tab .mdc-tab__text-label {
+  color: var(--ui-header-text) !important;
+  font-size: 11px;
+  font-weight: 500;
+}
+.mat-mdc-tab-group .mat-mdc-tab:hover {
+  background: var(--ui-bg-hover) !important;
+}
+.mat-mdc-tab-group .mat-mdc-tab.mdc-tab--active { background: transparent !important; }
+.mat-mdc-tab-group .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { color: var(--theme-accent, var(--ui-primary)) !important; }
+.mat-mdc-tab-group .mdc-tab-indicator__content--underline {
+  border: 0 !important;
+  height: 3px !important;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(90deg, var(--ui-primary-dark), var(--theme-accent, var(--ui-primary))) !important;
+}
+.mat-mdc-tab-group .mat-mdc-tab-body-content {
+  box-sizing: border-box;
+  overflow-x: auto;
+  padding: 10px;
+}
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination {
+  box-sizing: border-box;
+  width: 34px;
+  min-width: 34px;
+  flex: 0 0 34px;
+}
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination-before { margin-inline-start: 8px; }
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination-after { margin-inline-end: 8px; }
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination-chevron { border-color: var(--ui-text-muted) !important; }
+.mat-mdc-tab-group .mat-mdc-tab-header-pagination-disabled { opacity: .35; }
+
+/* Table headers use the same quiet surface and accent language as the tabs. */
+table thead { background: var(--ui-header-bg); }
+table thead th {
+  color: var(--ui-header-text);
+  background: var(--ui-header-bg);
+  border-bottom: 1px solid var(--ui-border-soft);
+}
+
+/* Keep navigation labels and table headings on the same type scale. */
+.topbar-nav-item,
+.mat-mdc-tab-group .mat-mdc-tab .mdc-tab__text-label,
+.settings-tabs .mat-mdc-tab .mdc-tab__text-label {
+  font-family: var(--ui-compact-label-font-family) !important;
+  font-size: 13px !important;
+  font-weight: var(--ui-compact-label-font-weight) !important;
+  letter-spacing: normal !important;
+}
+
+/* Shared workspace surfaces follow the compact dashboard visual language. */
+.main-content .page-title {
+  gap: 10px;
+  padding: 11px 14px;
+}
+.main-content .page-title .title-icon {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+  border-radius: 8px;
+}
+.main-content .page-title .title-copy h1 {
+  color: var(--ui-text-strong);
+  font-size: var(--ui-page-title-font-size);
+  line-height: var(--ui-page-title-line-height);
+  font-weight: var(--ui-page-title-font-weight);
+}
+.main-content .page-title .title-copy p {
+  color: var(--ui-text-muted);
+  font-size: var(--ui-page-subtitle-font-size);
+}
+.main-content :is(.clients-page, .opportunities-page, .interactions-page, .settings-page) .page-title .title-copy p {
+  margin: 2px 0 0;
+  color: var(--ui-text-muted);
+  font-size: var(--ui-page-subtitle-font-size);
+}
+.main-content :is(.clients-page, .opportunities-page, .interactions-page, .settings-page) .page-title .title-copy h1 {
+  margin: 0;
+  color: var(--ui-text-strong);
+  font-size: var(--ui-page-title-font-size);
+  line-height: var(--ui-page-title-line-height);
+  font-weight: var(--ui-page-title-font-weight);
+}
+.main-content :is(.clients-page, .opportunities-page, .interactions-page, .settings-page) .page-title {
+  align-items: center;
+  gap: 10px;
+  padding: 2px 4px 16px;
+}
+.main-content :is(.clients-page, .opportunities-page, .interactions-page, .settings-page) .page-title .title-icon {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--ui-accent-cyan) !important;
+}
+.main-content :is(.clients-page, .opportunities-page, .interactions-page, .settings-page) .page-title .title-icon mat-icon {
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
+}
+
+.main-content .section-title {
+  color: var(--ui-text-strong);
+  border-bottom-color: var(--ui-border-soft);
+}
+.main-content .reports-head {
+  padding: 14px 16px;
+  background: var(--ui-bg-subtle);
+  border-bottom-color: var(--ui-border-soft);
+}
+.main-content .reports-title h2 {
+  color: var(--ui-text-strong);
+  font-size: 16px;
+}
+.main-content .reports-title p {
+  color: var(--ui-text-muted);
+  font-size: 11px;
+}
+.main-content .reports-icon { color: var(--ui-primary); }
+.main-content .reports-body { padding: 16px; }
+
+.main-content .detail-body { padding: 14px; }
+.main-content .summary-grid {
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.main-content .sub-title {
+  color: var(--ui-text-strong);
+  font-size: 12px;
+}
+.main-content .history-text,
+.main-content .comment-text { color: var(--ui-text-secondary); }
+.main-content .history-meta,
+.main-content .comment-meta { color: var(--ui-text-muted); }
+
+.main-content .form-padding { padding: 16px; }
+.main-content .tab-content { padding: 14px 4px 4px; }
+
+@media (max-width: 700px) {
+  .main-content .detail-body,
+  .main-content .reports-body { padding: 12px; }
+  .main-content .summary-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .main-content .reports-head { padding: 12px; }
+}
+

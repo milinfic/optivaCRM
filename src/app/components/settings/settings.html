@@ -1,0 +1,142 @@
+<section class="crm-list-page settings-page">
+  <app-page-title
+    icon="settings"
+    title="Configurações"
+    subtitle="Gerencie listas e usuários do sistema.">
+  </app-page-title>
+
+  <app-card>
+    <mat-tab-group class="ux-tabs settings-tabs" [mat-stretch-tabs]="false">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">category</mat-icon>
+          <span>Segmentos</span>
+        </ng-template>
+        <app-lookup-manager resource="client-segments" labelField="name"
+          placeholder="Ex.: Varejo"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">workspaces</mat-icon>
+          <span>Grupos</span>
+        </ng-template>
+        <app-lookup-manager resource="client-groups" labelField="name"
+          placeholder="Ex.: Grupo A"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">groups</mat-icon>
+          <span>Tipos de cliente</span>
+        </ng-template>
+        <app-lookup-manager resource="client-types" labelField="name"
+          placeholder="Ex.: Fornecedor"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">location_on</mat-icon>
+          <span>Tipos de endereço</span>
+        </ng-template>
+        <app-lookup-manager resource="address-types" labelField="type"
+          placeholder="Ex.: Cobrança"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">contacts</mat-icon>
+          <span>Tipos de contato</span>
+        </ng-template>
+        <app-lookup-manager resource="contact-types" labelField="description"
+          placeholder="Ex.: WhatsApp"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">description</mat-icon>
+          <span>Tipos de documento</span>
+        </ng-template>
+        <app-lookup-manager resource="type-documents" labelField="document_type"
+          placeholder="Ex.: Contrato Social"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">trending_up</mat-icon>
+          <span>Tipos de oportunidade</span>
+        </ng-template>
+        <app-lookup-manager resource="opportunity-types" labelField="type"
+          placeholder="Ex.: Renovação"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">flag</mat-icon>
+          <span>Status de oportunidade</span>
+        </ng-template>
+        <app-lookup-manager resource="opportunity-statuses" labelField="status"
+          placeholder="Ex.: Negociação"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">forum</mat-icon>
+          <span>Tipos de interação</span>
+        </ng-template>
+        <app-lookup-manager resource="interaction-types" labelField="description"
+          placeholder="Ex.: Visita"></app-lookup-manager>
+      </mat-tab>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="true">manage_accounts</mat-icon>
+          <span>Usuários</span>
+        </ng-template>
+        <div class="users-tab">
+  
+          <div class="tab-toolbar">
+            <button mat-raised-button class="btn-confirm" (click)="openUser()">
+              <mat-icon>person_add</mat-icon>
+              Novo usuário
+            </button>
+          </div>
+  
+          <table class="users-table" *ngIf="users.length">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Base</th>
+                <th class="actions-column">Ações</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.data_base || '-' }}</td>
+                <td>
+                  <div class="container-btn-groups">
+                    <button class="btn-edit" (click)="openUser(user)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn-delete" (click)="removeUser(user)">
+                      <mat-icon>person_off</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <app-empty-state *ngIf="users.length === 0"
+            icon="people" title="Nenhum usuário cadastrado."></app-empty-state>
+  
+        </div>
+      </mat-tab>
+  
+    </mat-tab-group>
+  </app-card>
+</section>

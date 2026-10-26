@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.detail-body {
+  padding: 0;
+}
+
+.detail-tabs {
+  background: var(--ui-white);
+}
+
+@media (max-width: 600px) {
+  .client-detail-page .crm-list-title-row {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: start;
+    gap: 4px;
+  }
+
+  .client-detail-page app-btn-back {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 2px 0 0;
+  }
+
+  .client-detail-page .crm-list-title-row app-page-title {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .client-detail-page .crm-list-title-row app-btn-primary {
+    grid-column: 2;
+    grid-row: 2;
+    width: fit-content;
+    margin: 2px 0 0;
+  }
+
+  .client-detail-page .detail-body,
+  .client-detail-page .summary-grid,
+  .client-detail-page mat-tab-group,
+  .client-detail-page app-card,
+  .client-detail-page app-client-contacts,
+  .client-detail-page app-client-addresses,
+  .client-detail-page app-client-documents,
+  .client-detail-page app-client-history {
+    min-width: 0;
+    max-width: 100%;
+  }
+}

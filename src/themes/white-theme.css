@@ -1,0 +1,124 @@
+/* All-white variant; the default theme keeps a navy top bar. */
+html.theme-white:not(.theme-dark):not(.theme-blue) {
+  --ui-bg-page: #ffffff;
+  --ui-bg-surface: #ffffff;
+  --ui-bg-subtle: #f7f9fc;
+  --ui-bg-muted: #edf2f7;
+  --ui-bg-hover: #f1f5f9;
+  --ui-text-primary: #17243b;
+  --ui-text-strong: #0b2545;
+  --ui-text-secondary: #52627b;
+  --ui-text-muted: #71809a;
+  --ui-border: #e2e8f0;
+  --ui-border-soft: #edf1f6;
+  --ui-border-strong: #dce3ec;
+  --ui-primary: #3478f6;
+  --ui-primary-strong: #1452d5;
+  --ui-accent: #3478f6;
+  --ui-accent-cyan: #078c9d;
+  --ui-success: #27b87a;
+  --ui-success-dark: #047857;
+  --ui-success-bg: #e4faf2;
+  --ui-danger: #e7000b;
+  --ui-danger-dark: #b91c1c;
+  --ui-danger-bg: #fee2e2;
+  --ui-warning: #f28a2e;
+  --ui-warning-bg: #fff1e3;
+  --ui-info: #347cf2;
+  --ui-info-bg: #e8f1ff;
+  /* Accent colors for the dashboard metric icons. */
+  --dash-icon-clients: #0eaa70;
+  --dash-icon-opportunities: #2672e8;
+  --dash-icon-pipeline: #9844c5;
+  --dash-icon-new-clients: #e67e22;
+  --ui-sidebar-bg: #ffffff;
+  --ui-sidebar-border: #e7edf5;
+  --ui-sidebar-text: #536782;
+  --ui-sidebar-hover: #f3f7ff;
+  --ui-sidebar-active: #eaf2ff;
+  --ui-sidebar-card: #f5f8fd;
+  --ui-header-bg: #ffffff;
+  --ui-header-text: #52647d;
+  --ui-header-muted: #75869b;
+  --ui-header-inactive: #edf2f7;
+  --ui-header-hover: #f3f8fc;
+  --ui-header-active: #eaf2ff;
+  --ui-date-bg: #f5f8fb;
+  --ui-date-border: #c9e1e8;
+  --ui-table-head: #eef2f7;
+  --ui-purple: #9b52d1;
+  --ui-purple-soft: #f2e7ff;
+  --ui-purple-wave: #ead7ff;
+  --ui-success-wave: #bcebd9;
+  --ui-info-wave: #c8dcff;
+  --ui-warning-wave: #ffdfc2;
+  --ui-success-pill: #27b87a;
+  --ui-input-bg: #ffffff;
+  --ui-login-bg: linear-gradient(0deg, #f5f8fc, #ffffff);
+  --ui-settings-gradient: linear-gradient(135deg, #f7f9fc, #edf3fa);
+  --ui-footer-bg: #ffffff;
+  --ui-shadow-sm: 0 2px 6px rgba(26, 45, 75, .05);
+  --ui-shadow-md: 0 8px 25px rgba(0, 0, 0, .08);
+  --ui-shadow-card: rgba(26, 45, 75, .07);
+  --ui-shadow-card-raised: rgba(26, 45, 75, .08);
+  --ui-shadow-accent: rgba(7, 140, 157, .16);
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar {
+  background: #fff !important;
+  color: #20324b !important;
+  border-bottom: 1px solid #e7edf5 !important;
+  box-shadow: 0 2px 8px rgba(31, 55, 86, .06) !important;
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) .brand-image-light { display: block !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) .brand-image-dark { display: none !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar-nav-item { color: #657792 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar-nav-item:hover,
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar-nav-item.active {
+  color: #3478f6 !important;
+  background: #f3f7ff !important;
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar-nav-item.active::after { background: #3478f6 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .notif-btn,
+html.theme-white:not(.theme-dark):not(.theme-blue) body .user-btn,
+html.theme-white:not(.theme-dark):not(.theme-blue) body .user-caret { color: #64758d !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .user-name { color: #657792 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .user-btn:hover { background: #f1f5fb !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .notif-dot { border-color: #fff !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .topbar .avatar:not(.avatar-lg),
+html.theme-white:not(.theme-dark):not(.theme-blue) body .user-menu-head .avatar-lg {
+  background: linear-gradient(135deg, #16bfd0, #0782aa) !important;
+  color: #fff !important;
+  border: 1px solid #63e4df;
+  box-shadow: 0 0 0 2px rgba(0, 168, 150, .12), 0 0 11px rgba(0, 168, 150, .38);
+}
+
+/* Keep the sidebar in the same light palette as the white theme. */
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar {
+  background: #fff !important;
+  border-color: #e7edf5 !important;
+  box-shadow: 2px 0 8px rgba(31, 55, 86, .035);
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-brand { border-color: #e7edf5 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-brand-image-light { display: block !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-brand-image-dark { display: none !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-item { color: #536782 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-item:hover {
+  background: #f3f7ff !important;
+  color: #245cb8 !important;
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-item.active {
+  background: #eaf2ff !important;
+  color: #2563eb !important;
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-item.active .item-icon { color: #2563eb !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-separator { background: #e7edf5 !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-product-card {
+  background: #f5f8fd !important;
+  border-color: #e1e9f4 !important;
+}
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-product-name { color: #20324b !important; }
+html.theme-white:not(.theme-dark):not(.theme-blue) body .sidebar-product-name span { color: #3478f6 !important; }
+
+html.theme-white:not(.theme-dark):not(.theme-blue) body .crm-list-page app-filters .field label {
+  color: #657792 !important;
+}

@@ -1,0 +1,59 @@
+<section class="crm-list-page interactions-page">
+  <div class="crm-list-title-row">
+  <app-page-title
+    icon="forum"
+    title="Interações"
+    subtitle="Consulte e registre as interações com clientes.">
+  </app-page-title>
+  <app-btn-primary title="Registrar interação" icon="add_comment" (clicked)="create()"></app-btn-primary>
+  </div>
+ 
+
+  <app-card class="filter-card">
+  <!-- <h2 class="crm-list-filter-title">Filtros Avançados</h2> -->
+  <app-filters
+    [fields]="filterFields"
+    [loading]="loading"
+    (valueChange)="onFilterChange($event)"
+    (apply)="applyFilter()"
+    (clear)="clearFilter()">
+  </app-filters>
+  </app-card>
+
+  <app-card>
+  <div class="interactions">
+    <div class="interaction" *ngFor="let item of interactions">
+      <div class="dot" [style.background]="item.type_color || 'var(--ui-gray-400)'"></div>
+
+      <div class="content">
+        <div class="title">
+          <span>{{ item.subject }}</span>
+          <span class="badge">{{ item.type_description || 'Interação' }}</span>
+        </div>
+
+        <div class="meta">
+          <a (click)="openClient(item)">{{ item.client_name }}</a>
+          · {{ formatDate(item.interaction_date) }}
+          <span *ngIf="item.user_name"> · {{ item.user_name }}</span>
+          <span *ngIf="item.next_contact_date"> · próximo: {{ formatDate(item.next_contact_date) }}</span>
+        </div>
+
+        <p class="text" *ngIf="item.description">{{ item.description }}</p>
+      </div>
+    </div>
+
+    <app-empty-state *ngIf="!loading && interactions.length === 0"
+      icon="forum" title="Nenhuma interação registrada."
+      text="Registre ligações, reuniões e visitas aos clientes."></app-empty-state>
+  </div>
+
+  <app-pagination
+    [total]="total"
+    [page]="page"
+    [limit]="limit"
+    [visibleCount]="interactions.length"
+    [loading]="loading"
+    (pageChange)="changePage($event)">
+  </app-pagination>
+  </app-card>
+</section>

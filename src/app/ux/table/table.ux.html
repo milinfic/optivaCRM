@@ -1,0 +1,104 @@
+<table mat-table class="ux-table">
+
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers"
+          [style.width]="header.width"
+          [style.text-align]="header.align || 'left'">
+        {{ header.text }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let row of datas" class="data-row">
+
+      <td *ngFor="let header of headers"
+          [attr.data-label]="header.text"
+          [class.actions-cell]="isActions(header)"
+          [style.text-align]="header.align || 'left'">
+
+        <!-- AÇÕES -->
+        <ng-container *ngIf="isActions(header); else defaultCell">
+          <div class="container-btn-groups">
+
+            <button *ngIf="showView" class="btn-view" matTooltip="Visualizar"
+                    (click)="actionTableComponent('view', row)">
+              <span class="material-icons">visibility</span>
+            </button>
+
+            <button class="btn-edit" matTooltip="Editar"
+                    (click)="actionTableComponent('update', row)">
+              <span class="material-icons">edit</span>
+            </button>
+
+            <button *ngFor="let action of actions"
+                    [ngClass]="action.cssClass || 'btn-edit'"
+                    [matTooltip]="action.tooltip"
+                    (click)="actionTableComponent(action.key, row)">
+              <span class="material-icons">{{ action.icon }}</span>
+            </button>
+
+            <button class="btn-delete" matTooltip="Excluir"
+                    (click)="actionTableComponent('delete', row)">
+              <span class="material-icons">delete</span>
+            </button>
+
+          </div>
+        </ng-container>
+
+        <!-- CÉLULAS -->
+        <ng-template #defaultCell>
+          <ng-container [ngSwitch]="header.type">
+
+            <span *ngSwitchCase="'date'">
+              {{ cellValue(row, header) ? (cellValue(row, header) | date:'dd/MM/yyyy') : '-' }}
+            </span>
+
+            <span *ngSwitchCase="'datetime'">
+              {{ cellValue(row, header) ? (cellValue(row, header) | date:'dd/MM/yyyy HH:mm') : '-' }}
+            </span>
+
+            <span *ngSwitchCase="'currency'">
+              {{ cellValue(row, header) != null ? (cellValue(row, header) | currency:'BRL':'symbol':'1.2-2':'pt-BR') : '-' }}
+            </span>
+
+            <span *ngSwitchCase="'badge'">
+              <span class="badge" [class.badge-on]="cellValue(row, header)" [class.badge-off]="!cellValue(row, header)">
+                {{ cellValue(row, header) || '-' }}
+              </span>
+            </span>
+
+            <span *ngSwitchCase="'boolean'">
+              <span class="badge"
+                    [class.badge-on]="cellValue(row, header)"
+                    [class.badge-off]="!cellValue(row, header)">
+                {{ cellValue(row, header) ? 'Sim' : 'Não' }}
+              </span>
+            </span>
+
+            <span *ngSwitchCase="'color'"
+                  class="color-dot"
+                  [style.background-color]="cellValue(row, header)">
+            </span>
+
+            <span *ngSwitchDefault>
+              {{ cellValue(row, header) ?? '-' }}
+            </span>
+
+          </ng-container>
+        </ng-template>
+
+      </td>
+    </tr>
+
+    <tr *ngIf="!loading && (!datas || datas.length === 0)">
+      <td [attr.colspan]="headers.length" class="empty">{{ emptyMessage }}</td>
+    </tr>
+
+    <tr *ngIf="loading">
+      <td [attr.colspan]="headers.length" class="empty">Carregando...</td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,42 @@
+<section class="crm-list-page opportunities-page">
+  <div class="crm-list-title-row">
+    <app-page-title
+      icon="trending_up"
+      title="Oportunidades"
+      subtitle="Acompanhe e gerencie as oportunidades comerciais.">
+    </app-page-title>
+
+    <app-btn-primary title="Nova oportunidade" icon="add" (clicked)="create()"></app-btn-primary>
+  </div>
+
+  <app-card class="filter-card">
+    <!-- <h2 class="crm-list-filter-title">Filtros Avançados</h2> -->
+    <app-filters
+      [fields]="filterFields"
+      [loading]="loading"
+      (valueChange)="onFilterChange($event)"
+      (apply)="applyFilter()"
+      (clear)="clearFilter()">
+    </app-filters>
+  </app-card>
+
+  <app-card>
+  <app-table
+    [datas]="opportunities"
+    [headers]="headers"
+    [loading]="loading"
+    [showView]="true"
+    emptyMessage="Nenhuma oportunidade encontrada."
+    (actionEventTableComponent)="onAction($event)">
+  </app-table>
+
+  <app-pagination
+    [total]="total"
+    [page]="page"
+    [limit]="limit"
+    [visibleCount]="opportunities.length"
+    [loading]="loading"
+    (pageChange)="changePage($event)">
+  </app-pagination>
+  </app-card>
+</section>

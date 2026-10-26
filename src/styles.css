@@ -1,0 +1,9 @@
+@import './styles/base.css';
+@import './styles/dialogs.css';
+@import './styles/forms.css';
+@import './styles/workspace.css';
+@import './styles/controls.css';
+@import './styles/app-sizing.css';
+@import './styles/tables.css';
+@import './styles/list-pages.css';
+@import './styles/responsive.css';

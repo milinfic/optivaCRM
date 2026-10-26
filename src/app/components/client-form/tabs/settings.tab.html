@@ -1,0 +1,11 @@
+<div class="tab-content" [formGroup]="clientForm">
+
+  <div class="toggles column">
+    <label class="toggle-item"><input type="checkbox" formControlName="blocked"> Cliente bloqueado</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="allow_partial_invoice"> Permitir nota parcial</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="allow_sale_without_stock"> Permitir venda sem estoque</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="require_purchase_order"> Exigir ordem de compra</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="require_special_approval"> Exigir aprovação especial</label>
+  </div>
+
+</div>

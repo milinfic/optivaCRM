@@ -1,0 +1,366 @@
+/* Deep navy blue theme based on the Optiva dashboard reference. */
+:root {
+  color-scheme: dark;
+  --blue-page: #0a1428;
+  --blue-sidebar: #0c172c;
+  --blue-surface: #121f39;
+  --blue-surface-raised: #182744;
+  --blue-border: #223452;
+  --blue-text: #edf3ff;
+  --blue-muted: #91a3c0;
+  --blue-accent: #347cff;
+  --ui-bg-page: #0a1428;
+  --ui-bg-surface: #121f39;
+  --ui-bg-subtle: #182744;
+  --ui-bg-muted: #172744;
+  --ui-bg-hover: #1b2b47;
+  --ui-text-primary: #edf3ff;
+  --ui-text-strong: #ffffff;
+  --ui-text-secondary: #c5d2e5;
+  --ui-text-muted: #91a3c0;
+  --ui-border: #223452;
+  --ui-border-soft: #1d2d4c;
+  --ui-border-strong: #2b4164;
+  --ui-primary: #347cff;
+  --ui-primary-strong: #75aaff;
+  --ui-accent: #00a896;
+  --ui-accent-cyan: #11b7c5;
+  --ui-success: #27b87a;
+  --ui-success-dark: #047857;
+  --ui-success-bg: #123e3d;
+  --ui-danger: #ff7a83;
+  --ui-danger-dark: #ff9ca2;
+  --ui-danger-bg: #4a2732;
+  --ui-warning: #ffb15f;
+  --ui-warning-bg: #443325;
+  --ui-info: #78aaff;
+  --ui-info-bg: #203b64;
+  /* Light icon accents stay visible on the deep blue dashboard cards. */
+  --dash-icon-clients: #b8ffe3;
+  --dash-icon-opportunities: #c7dcff;
+  --dash-icon-pipeline: #ebcaff;
+  --dash-icon-new-clients: #ffdab8;
+  --ui-sidebar-bg: #0c172c;
+  --ui-sidebar-border: #1d2b46;
+  --ui-sidebar-text: #91a3c0;
+  --ui-sidebar-hover: #172744;
+  --ui-sidebar-active: linear-gradient(100deg, #214b9a, #1b3f83);
+  --ui-sidebar-card: #121f39;
+  --ui-header-bg: #0c162b;
+  --ui-header-text: #edf3ff;
+  --ui-header-muted: #91a3c0;
+  --ui-header-inactive: #182744;
+  --ui-header-hover: #213757;
+  --ui-header-active: linear-gradient(115deg, #0b2545, #00a896);
+  --ui-date-bg: #112a3b;
+  --ui-date-border: #1b6579;
+  --ui-table-head: #182744;
+  --ui-input-bg: #101d35;
+  --ui-login-bg: linear-gradient(0deg, #0a1428, #121f39);
+  --ui-settings-gradient: linear-gradient(135deg, #152b49, #1b3f61);
+  --ui-footer-bg: #0b2545;
+  --ui-shadow-sm: 0 2px 7px rgba(0, 0, 0, .2);
+  --ui-shadow-md: 0 8px 25px rgba(0, 0, 0, .35);
+  --ui-white: #edf3ff;
+  --ui-black: #000000;
+  --ui-gray-50: #121f39;
+  --ui-gray-100: #172744;
+  --ui-gray-200: #223452;
+  --ui-gray-300: #2b4164;
+  --ui-gray-400: #91a3c0;
+  --ui-gray-500: #a8b8cf;
+  --ui-gray-600: #b6c5d9;
+  --ui-gray-700: #c5d2e5;
+  --ui-gray-800: #182744;
+  --ui-gray-900: #edf3ff;
+  --ui-neutral-ccc: #cccccc;
+  --ui-neutral-999: #9dabc2;
+  --ui-neutral-333: #223452;
+  --ui-login-gradient-start: #0a1428;
+  --ui-login-gradient-end: #121f39;
+  --ui-workspace-gradient-start: #0a1428;
+  --ui-workspace-gradient-end: #121f39;
+  --ui-settings-gradient-start: #152b49;
+  --ui-settings-gradient-end: #1b3f61;
+  --ui-settings-tab-bg: #172744;
+  --ui-settings-tab-hover: #203b64;
+  --ui-success-button: #1d9b69;
+  --ui-success-button-hover: #27b87a;
+  --ui-success-button-shadow: rgba(39, 184, 122, .25);
+  --ui-success-pill: #16875d;
+  --ui-success-soft: #123e3d;
+  --ui-success-wave: #123e3d;
+  --ui-error: #ff7a83;
+  --ui-error-alt: #ff858b;
+  --ui-error-deep: #ff9ca2;
+  --ui-error-soft: #4a2732;
+  --ui-error-soft-alt: #4a2732;
+  --ui-info-bright: #78aaff;
+  --ui-info-dark: #75aaff;
+  --ui-info-wave: #203b64;
+  --ui-purple: #c084fc;
+  --ui-purple-soft: #38244d;
+  --ui-purple-wave: #38244d;
+  --ui-warning-wave: #443325;
+  --ui-disabled-success: #456b53;
+  --ui-danger-badge: #ff9ca2;
+  --ui-modal-surface: #121f39;
+  --ui-modal-border: #223452;
+  --ui-login-card: #121f39;
+  --ui-login-title: #edf3ff;
+  --ui-link-blue: #78aaff;
+  --ui-link-hover: #a8c9ff;
+  --ui-overlay: rgba(0, 0, 0, .45);
+  --ui-overlay-soft: rgba(0, 0, 0, .18);
+  --ui-overlay-medium: rgba(0, 0, 0, .25);
+  --ui-overlay-strong: rgba(0, 0, 0, .35);
+  --ui-shadow-card: rgba(0, 0, 0, .16);
+  --ui-shadow-card-raised: rgba(0, 0, 0, .22);
+  --ui-shadow-header: rgba(0, 0, 0, .3);
+  --ui-focus-shadow: rgba(52, 124, 255, .22);
+  --ui-shadow-accent: rgba(0, 168, 150, .2);
+  --ui-shadow-success: rgba(39, 184, 122, .25);
+  --ui-logo-blue: #8cc7ff;
+  --ui-sidebar-border-card: #203957;
+  --ui-sidebar-accent: #43c2cf;
+  --ui-sidebar-icon-active: #d8f6ff;
+  --ui-white-translucent: rgba(255, 255, 255, .08);
+  --ui-neutral-hover: #203b64;
+  --ui-neutral-active: #172744;
+  --ui-neutral-background: #0a1428;
+  --ui-info-wave: #203b64;
+  --ui-header-dark: #0c162b;
+  --ui-white-95: rgba(255, 255, 255, .94);
+  --ui-primary-dark: #1452d5;
+  --ui-primary-bright: #78aaff;
+  --ui-text-on-dark: #dce8ff;
+  --ui-dialog-gradient-start: #101b30;
+  --ui-dialog-gradient-end: #0c172b;
+  --ui-overlay-faint: rgba(0, 0, 0, .2);
+  --ui-overlay-light: rgba(0, 0, 0, .24);
+}
+
+html.theme-blue,
+html.theme-blue body {
+  min-height: 100%;
+  color-scheme: dark;
+  background: var(--blue-page) !important;
+  color: var(--blue-text) !important;
+}
+
+html.theme-blue body,
+html.theme-blue button,
+html.theme-blue input,
+html.theme-blue select,
+html.theme-blue textarea { font-family: Roboto, "Helvetica Neue", sans-serif; }
+html.theme-blue ::selection { background: #234e9b; color: #fff; }
+
+html.theme-blue app-root,
+html.theme-blue .workspace-layout,
+html.theme-blue .main-content,
+html.theme-blue .background-default {
+  background: var(--blue-page) !important;
+  color: var(--blue-text) !important;
+}
+
+/* Header and navigation */
+html.theme-blue body .topbar {
+  background: #0c162b !important;
+  color: var(--blue-text) !important;
+  border-bottom: 1px solid #1d2b46;
+  box-shadow: none !important;
+}
+html.theme-blue .brand-image-light { display: none !important; }
+html.theme-blue .brand-image-dark { display: block !important; }
+html.theme-blue .sidebar-brand-image-light { display: none !important; }
+html.theme-blue .sidebar-brand-image-dark { display: block !important; }
+html.theme-blue body .topbar-nav-item { color: #91a3c0 !important; }
+html.theme-blue body .topbar-nav-item:hover,
+html.theme-blue body .topbar-nav-item.active {
+  color: #fff !important;
+  background: #18294a !important;
+}
+html.theme-blue body .topbar-nav-item.active::after { background: var(--blue-accent) !important; }
+html.theme-blue body .notif-btn,
+html.theme-blue body .user-btn,
+html.theme-blue body .user-caret { color: #9eb0cc !important; }
+html.theme-blue body .user-name { color: #91a3c0 !important; }
+html.theme-blue body .user-btn:hover { background: #182744 !important; }
+html.theme-blue body .notif-dot { border-color: #0c162b !important; }
+html.theme-blue body .avatar { background: #397cff !important; color: #fff !important; }
+
+html.theme-blue body .sidebar {
+  background: var(--blue-sidebar) !important;
+  border-color: #1d2b46 !important;
+}
+html.theme-blue body .sidebar-item { color: #91a3c0 !important; }
+html.theme-blue body .sidebar-item:hover { background: #172744 !important; color: #fff !important; }
+html.theme-blue body .sidebar-item.active {
+  background: linear-gradient(100deg, #214b9a, #1b3f83) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+html.theme-blue body .sidebar-item.active .item-icon { color: #fff !important; }
+html.theme-blue body .sidebar-separator { background: #233553 !important; }
+
+/* Main surfaces and page headers */
+html.theme-blue body app-card .modal-card,
+html.theme-blue body .dashboard-box {
+  background: var(--ui-header-bg) !important;
+  color: var(--blue-text) !important;
+  border-color: #1d2d4c !important;
+  box-shadow: 0 5px 18px rgba(1, 8, 22, .16) !important;
+}
+html.theme-blue body .client-detail .summary-grid > *,
+html.theme-blue body .detail-tabs,
+html.theme-blue body .container-menu-dash {
+  background: var(--blue-surface) !important;
+  color: var(--blue-text) !important;
+  border-color: #1d2d4c !important;
+  box-shadow: 0 5px 18px rgba(1, 8, 22, .16) !important;
+}
+html.theme-blue body .page-title,
+html.theme-blue body .dashboard-heading,
+html.theme-blue body .reports-head { color: var(--blue-text) !important; }
+html.theme-blue body .page-title .title-copy h1,
+html.theme-blue body .welcome h1,
+html.theme-blue body .box-heading h2,
+html.theme-blue body .reports-title h2,
+html.theme-blue body .section-title,
+html.theme-blue body .panel-head h3,
+html.theme-blue body .modal-title,
+html.theme-blue body .section-head h4,
+html.theme-blue body .timeline-title,
+html.theme-blue body .detail-value { color: #f0f5ff !important; }
+html.theme-blue body .page-title .title-copy p,
+html.theme-blue body .welcome p,
+html.theme-blue body .reports-title p,
+html.theme-blue body .section-head,
+html.theme-blue body .timeline-meta,
+html.theme-blue body .detail-label,
+html.theme-blue body .subtitle { color: var(--blue-muted) !important; }
+html.theme-blue body .title-icon,
+html.theme-blue body .section-icon { background: #1a3768 !important; color: #74a7ff !important; }
+html.theme-blue body .page-header { background: #121f39 !important; color: var(--blue-text) !important; }
+html.theme-blue body .page-header .title-icon,
+html.theme-blue body .page-header .back-btn { color: #80adff !important; }
+html.theme-blue body .page-header .modal-title { color: #f0f5ff !important; }
+html.theme-blue body .page-header .subtitle { color: var(--blue-muted) !important; }
+
+html.theme-blue body .dashboard-page .dashboard-box { background: var(--ui-header-bg) !important; }
+html.theme-blue body .dashboard-page .simple-table,
+html.theme-blue body .crm-list-page .ux-table,
+html.theme-blue body .users-table,
+html.theme-blue body .detail-table { background: #121f39 !important; color: #eaf1ff !important; }
+html.theme-blue body .dashboard-page .simple-table thead,
+html.theme-blue body .crm-list-page .ux-table thead,
+html.theme-blue body .users-table thead,
+html.theme-blue body .detail-table thead { background: #192945 !important; }
+html.theme-blue body .dashboard-page .simple-table th,
+html.theme-blue body .crm-list-page .ux-table th,
+html.theme-blue body .users-table th,
+html.theme-blue body .detail-table th { border-color: #263858 !important; }
+html.theme-blue body .dashboard-page .simple-table td,
+html.theme-blue body .crm-list-page .ux-table td,
+html.theme-blue body .users-table td,
+html.theme-blue body .detail-table td { color: #d6e1f5 !important; border-color: #223452 !important; }
+html.theme-blue body .count-chip { background: #1a3157 !important; color: #72a4ff !important; }
+html.theme-blue body .status-pill { background: #128153 !important; color: #d8ffec !important; }
+
+/* Forms, filters, tables and tabs */
+html.theme-blue body .filters-container,
+html.theme-blue body .crm-list-page app-filters .filters-container,
+html.theme-blue body .lookup-manager,
+html.theme-blue body .item-list li { background: var(--blue-surface) !important; color: var(--blue-text) !important; border-color: var(--blue-border) !important; }
+html.theme-blue body .crm-list-page app-filters .filters-container { background: transparent !important; }
+html.theme-blue body .field-control,
+html.theme-blue body .add-row .field-control,
+html.theme-blue body .form-group input,
+html.theme-blue body .form-group select,
+html.theme-blue body input:not([type="checkbox"]):not([type="radio"]):not([matInput]),
+html.theme-blue body select,
+html.theme-blue body textarea {
+  background: #182744 !important;
+  border-color: #2a3b5c !important;
+  color: #eaf1ff !important;
+  caret-color: #fff;
+}
+html.theme-blue body .field-control::placeholder,
+html.theme-blue body input::placeholder,
+html.theme-blue body textarea::placeholder { color: #8498b7 !important; }
+/* Use the theme's dark blue for selected text inside form controls. */
+html.theme-blue body input::selection,
+html.theme-blue body textarea::selection { background: #234e9b !important; color: #fff !important; }
+html.theme-blue body .field-control:focus,
+html.theme-blue body input:focus,
+html.theme-blue body select:focus,
+html.theme-blue body textarea:focus { border-color: #4386ff !important; box-shadow: 0 0 0 1px #4386ff !important; }
+html.theme-blue body .field label,
+html.theme-blue body .add-row .field label { color: #9aacc8 !important; }
+html.theme-blue body .crm-list-page app-filters .field label { color: #91a3c0 !important; }
+html.theme-blue body .item-label,
+html.theme-blue body .users-table tbody td { color: #e1e9f7 !important; }
+html.theme-blue body .item-list li { border-color: #263858 !important; }
+html.theme-blue body .item-list li:hover { background: #182744 !important; }
+html.theme-blue body .crm-list-page .btn-save,
+html.theme-blue body .btn-confirm,
+html.theme-blue body .add-btn,
+html.theme-blue body .upload-btn,
+html.theme-blue body .btn-add-channel { background: #246df0 !important; color: #fff !important; }
+html.theme-blue body .crm-list-page .btn-save:hover,
+html.theme-blue body .btn-confirm:hover,
+html.theme-blue body .add-btn:hover { background: #3b81ff !important; }
+html.theme-blue body .btn-clear,
+html.theme-blue body .btn-secondary { background: #172744 !important; color: #c2d0e5 !important; border-color: #2a3b5c !important; }
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab-header,
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab-header-pagination { background: #0c162b !important; border-color: #263858 !important; }
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab .mdc-tab__text-label { color: #9aacc8 !important; }
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab:hover { background: rgba(255, 255, 255, .06) !important; }
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab.mdc-tab--active {
+  background: #18294a !important;
+}
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label,
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab.mdc-tab--active mat-icon {
+  color: #fff !important;
+}
+html.theme-blue body .mat-mdc-tab-group .mdc-tab-indicator__content--underline {
+  background: var(--blue-accent) !important;
+}
+html.theme-blue body .mat-mdc-tab-group .mat-mdc-tab-header-pagination-chevron { border-color: #91a3c0 !important; }
+
+/* Angular Material overlays and sign-in */
+html.theme-blue body .mat-mdc-dialog-surface,
+html.theme-blue body .mat-mdc-menu-panel,
+html.theme-blue body .mat-mdc-select-panel,
+html.theme-blue body .mat-mdc-autocomplete-panel,
+html.theme-blue body .mat-datepicker-content,
+html.theme-blue body .mat-calendar { background: #121f39 !important; color: #eaf1ff !important; }
+html.theme-blue body .mat-mdc-menu-item,
+html.theme-blue body .mat-mdc-menu-item .mat-icon,
+html.theme-blue body .mat-mdc-option { color: #d4e0f2 !important; }
+html.theme-blue body .mat-mdc-menu-item:hover,
+html.theme-blue body .mat-mdc-option:hover { background: #1b2c49 !important; }
+html.theme-blue body .mat-mdc-form-field {
+  --mdc-outlined-text-field-input-text-color: #eaf1ff;
+  --mdc-outlined-text-field-label-text-color: #91a3c0;
+  --mdc-outlined-text-field-hover-label-text-color: #c4d3eb;
+  --mdc-outlined-text-field-outline-color: #304363;
+  --mdc-outlined-text-field-hover-outline-color: #55729f;
+  --mdc-outlined-text-field-focus-outline-color: #347cff;
+  --mdc-outlined-text-field-focus-label-text-color: #347cff;
+  --mdc-outlined-text-field-caret-color: #347cff;
+  --mat-select-enabled-trigger-text-color: #eaf1ff;
+  --mat-select-placeholder-text-color: #91a3c0;
+}
+html.theme-blue body .mat-mdc-form-field .mat-mdc-form-field-icon-prefix,
+html.theme-blue body .mat-mdc-form-field .mat-mdc-form-field-icon-suffix,
+html.theme-blue body .mat-mdc-form-field .mat-mdc-select-arrow { color: #91a3c0 !important; }
+html.theme-blue body .form-container { background: #121f39 !important; border: 1px solid #223452; box-shadow: 0 18px 48px rgba(0, 0, 0, .25) !important; }
+html.theme-blue body .login-page { background: var(--blue-page) !important; }
+html.theme-blue body .footer { background: #0c162b !important; color: #91a3c0 !important; border-color: #1d2b46 !important; }
+html.theme-blue body .mat-mdc-tooltip { background: #223452 !important; color: #f1f5ff !important; }
+html.theme-blue * { scrollbar-color: #334867 #0c172c; }
+html.theme-blue ::-webkit-scrollbar-track { background: #0c172c; }
+html.theme-blue ::-webkit-scrollbar-thumb { background: #334867; border: 2px solid #0c172c; }
+

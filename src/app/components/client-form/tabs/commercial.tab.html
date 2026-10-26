@@ -1,0 +1,27 @@
+<div class="tab-content" [formGroup]="clientForm">
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Segmento de mercado</label>
+      <input class="field-control" formControlName="market_segment" placeholder="Ex.: Alimentício">
+    </div>
+
+    <div class="field col">
+      <label>Canal de venda</label>
+      <input class="field-control" formControlName="sales_channel" placeholder="Ex.: E-commerce">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Limite de crédito</label>
+      <input class="field-control" type="number" formControlName="credit_limit" placeholder="0.00">
+    </div>
+
+    <div class="field col">
+      <label>Desconto máximo (%)</label>
+      <input class="field-control" type="number" formControlName="max_discount" placeholder="0.00">
+    </div>
+  </div>
+
+</div>

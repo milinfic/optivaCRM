@@ -1,0 +1,53 @@
+/* Larger shared UI sizing, matching the preferred 125% browser view at 100%. */
+.topbar {
+  height: 57.5px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}
+.topbar-nav { margin-left: 65px !important; }
+.topbar-nav-item { gap: 6px !important; padding-right: 15px !important; padding-left: 15px !important; font-size: 13.75px !important; }
+.topbar-nav-item mat-icon { width: 18.75px !important; height: 18.75px !important; font-size: 18.75px !important; }
+.brand-image { height: 30px !important; }
+.brand-logo { width: 28.75px !important; height: 28.75px !important; font-size: 18.75px !important; }
+.brand-name { font-size: 17.5px !important; }
+.workspace-layout { grid-template-columns: 202.5px minmax(0, 1fr) !important; min-height: calc(100vh - 57.5px) !important; }
+body app-sidebar { width: 202.5px !important; }
+.sidebar { width: 202.5px !important; }
+.sidebar-brand { height: 60px !important; min-height: 60px !important; }
+.sidebar-brand-image { width: 165px !important; max-height: 40px !important; }
+.sidebar-item { min-height: 40px !important; padding: 7.5px 12.5px !important; gap: 11.25px !important; font-size: 13.75px !important; }
+.sidebar-item .item-icon { width: 20px !important; height: 20px !important; font-size: 20px !important; }
+.main-content { min-height: calc(100vh - 57.5px) !important; padding: 22.5px 18.75px !important; }
+.crm-list-page app-card .modal-card { margin-bottom: 17.5px; }
+.crm-list-page .field .field-control { min-height: 50px; padding: 10px 13.75px; font-size: 15px; }
+.crm-list-page .ux-table thead th { padding: 12.5px 15px; }
+.crm-list-page .ux-table tbody td { padding: 11.25px 15px; }
+.crm-list-page app-pagination .pagination { padding: 12.5px 17.5px; font-size: 12.5px; }
+.crm-list-page .btn-view,
+.crm-list-page .btn-edit,
+.crm-list-page .btn-delete { height: 37.5px; padding: 0 8.75px; }
+.crm-list-page .container-btn-groups { gap: 3.75px; }
+.clients-page .ux-table thead th { padding: 10px 12.5px; }
+.clients-page .ux-table tbody td { padding: 8.75px 12.5px; }
+.clients-page .ux-table .badge { padding: 3.75px 10px; }
+.clients-page .btn-view,
+.clients-page .btn-edit,
+.clients-page .btn-delete { height: 30px; padding: 0 6.25px; }
+.clients-page .btn-view mat-icon,
+.clients-page .btn-edit mat-icon,
+.clients-page .btn-delete mat-icon { font-size: 21.25px; }
+.clients-page app-pagination .pagination { padding: 8.75px 12.5px; font-size: 11.25px; }
+
+@media (max-width: 875px) {
+  .workspace-layout { grid-template-columns: minmax(0, 1fr) !important; align-content: start; }
+  body app-sidebar { width: 100% !important; }
+  .sidebar { position: static !important; width: 100% !important; height: auto !important; padding: 7.5px !important; flex-direction: row !important; border-right: 0 !important; border-bottom: 1px solid var(--ui-border) !important; }
+  .sidebar-brand { display: none !important; }
+  .sidebar-nav { flex-direction: row !important; overflow-x: auto; }
+  .sidebar-bottom { flex-direction: row !important; }
+  .sidebar-product-card, .sidebar-separator { display: none !important; }
+  .sidebar-item { flex: 0 0 auto !important; }
+  .main-content { width: 100%; padding: 17.5px 15px !important; }
+  .topbar-nav { display: none !important; }
+}
+

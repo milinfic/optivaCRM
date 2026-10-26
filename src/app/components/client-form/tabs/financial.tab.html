@@ -1,0 +1,53 @@
+<div class="tab-content" [formGroup]="clientForm">
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Forma de pagamento preferida</label>
+      <input class="field-control" formControlName="preferred_payment_method" placeholder="Ex.: Boleto">
+    </div>
+
+    <div class="field col">
+      <label>Dia de vencimento</label>
+      <input class="field-control" type="number" formControlName="due_day" placeholder="1 a 31">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Banco</label>
+      <input class="field-control" formControlName="bank_name" placeholder="Nome do banco">
+    </div>
+
+    <div class="field col">
+      <label>Agência</label>
+      <input class="field-control" formControlName="agency">
+    </div>
+
+    <div class="field col">
+      <label>Conta</label>
+      <input class="field-control" formControlName="account_number">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col-2">
+      <label>Chave PIX</label>
+      <input class="field-control" formControlName="pix_key" placeholder="CPF, CNPJ, e-mail, telefone ou chave aleatória">
+    </div>
+  </div>
+
+  <div class="field" style="margin-bottom:0;">
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+      <input type="checkbox" formControlName="financial_blocked" style="width:16px;height:16px;">
+      Bloqueio financeiro
+    </label>
+  </div>
+
+  <div class="form-row" *ngIf="clientForm.get('financial_blocked')?.value" style="margin-top:14px;">
+    <div class="field col-full">
+      <label>Motivo do bloqueio</label>
+      <textarea class="field-control" rows="2" formControlName="block_reason" placeholder="Motivo do bloqueio"></textarea>
+    </div>
+  </div>
+
+</div>

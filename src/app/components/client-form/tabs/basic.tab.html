@@ -1,0 +1,76 @@
+<div class="tab-content" [formGroup]="clientForm">
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Código *</label>
+      <input class="field-control" formControlName="code" maxlength="20" placeholder="Código do cliente">
+    </div>
+
+    <div class="field col-2">
+      <label>Razão social *</label>
+      <input class="field-control" formControlName="name" placeholder="Razão social">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Nome fantasia</label>
+      <input class="field-control" formControlName="trade_name" placeholder="Nome fantasia">
+    </div>
+
+    <div class="field col">
+      <label>CNPJ / CPF</label>
+      <input class="field-control" formControlName="cpf_cnpj" placeholder="00.000.000/0001-00">
+    </div>
+
+    <div class="field col">
+      <label>RG / IE</label>
+      <input class="field-control" formControlName="rg_ie">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col">
+      <label>IM</label>
+      <input class="field-control" formControlName="im" placeholder="Inscrição municipal">
+    </div>
+
+    <div class="field col">
+      <label>Data de nascimento / fundação</label>
+      <input class="field-control" type="date" formControlName="birth_foundation_date">
+    </div>
+
+    <div class="field col">
+      <label>Segmento</label>
+      <select class="field-control" formControlName="client_segment_id">
+        <option [ngValue]="null">--</option>
+        <option *ngFor="let s of segments" [ngValue]="s.id">{{ s.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Grupo</label>
+      <select class="field-control" formControlName="client_group_id">
+        <option [ngValue]="null">--</option>
+        <option *ngFor="let g of groups" [ngValue]="g.id">{{ g.name }}</option>
+      </select>
+    </div>
+
+    <div class="field col-2">
+      <label>Tipos de cliente</label>
+      <select class="field-control" formControlName="client_type_ids" multiple style="min-height:44px;">
+        <option *ngFor="let t of clientTypes" [ngValue]="t.id">{{ t.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field" style="margin-bottom:0;">
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+      <input type="checkbox" formControlName="active" style="width:16px;height:16px;">
+      Cliente ativo
+    </label>
+  </div>
+
+</div>

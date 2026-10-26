@@ -1,0 +1,27 @@
+/* Layout dos campos — classes visuais globais em styles.css. */
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.form-row .col {
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+
+.form-row .col-2 {
+  flex: 2 1 300px;
+}
+
+.form-row .col-full {
+  flex: 1 1 100%;
+}
+
+@media (max-width: 900px) {
+  .form-row {
+    flex-direction: column;
+  }
+}

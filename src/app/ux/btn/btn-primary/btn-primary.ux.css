@@ -1,0 +1,103 @@
+:host {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+button.mat-mdc-raised-button {
+  box-sizing: border-box;
+  min-height: 45px !important;
+  height: 45px !important;
+  padding: 0 17.5px !important;
+  border: 0;
+  border-radius: 8.75px !important;
+  background: var(--theme-accent, var(--ui-gray-800)) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-size: 13.75px !important;
+  line-height: 1;
+}
+
+button.mat-mdc-raised-button:hover:not(:disabled) {
+  background: var(--theme-accent-strong, var(--ui-gray-900)) !important;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+mat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  font-size: 21.25px;
+  line-height: 1;
+}
+
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) button {
+  background: var(--ui-sidebar-active) !important;
+}
+
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) button:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+:host-context(html.theme-dark) button {
+  background: #3c3c3c !important;
+  border: 1px solid #555 !important;
+  color: #cccccc !important;
+}
+
+:host-context(html.theme-dark) button:hover:not(:disabled) {
+  background: #4a4a4a !important;
+}
+
+:host-context(html.theme-blue) button {
+  background: #172744 !important;
+  border: 1px solid #2a3b5c !important;
+  color: #c2d0e5 !important;
+}
+
+:host-context(html.theme-blue) button:hover:not(:disabled) {
+  background: #203657 !important;
+}
+
+:host-context(app-filters) button {
+  min-height: 36.25px !important;
+  height: 36.25px !important;
+  padding: 0 13.75px !important;
+  border-radius: 7.5px !important;
+  font-size: 13.75px !important;
+}
+
+:host-context(app-filters) mat-icon {
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  button {
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 0 14px !important;
+    font-size: 13px !important;
+  }
+
+  :host-context(.crm-list-title-row),
+  :host-context(.clients-title-row) {
+    margin: 0 0 0 auto;
+  }
+}

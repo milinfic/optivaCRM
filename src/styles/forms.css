@@ -1,0 +1,73 @@
+/* ---------- Formulários em tela (mesmo padrão dos modais) ---------- */
+.form-padding {
+  padding: 20px 22px;
+}
+
+.tab-content {
+  padding: 20px 4px 4px;
+}
+
+.toggles.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ui-settings-gradient-start);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.toggle-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ui-border-soft);
+  margin-top: 18px;
+}
+
+/* ---------- Espaçamento padrão do conteúdo das telas ----------
+   Igual ao das abas de Configurações (padding 20px), aplicado a todas
+   as listagens, filtros e painéis. */
+.app-card .filters-container {
+  margin-bottom: 0;
+}
+
+.app-card app-filters .filters-container {
+  padding: 20px 20px 0;
+}
+
+.app-card app-table {
+  display: block;
+  padding: 0 20px;
+}
+
+.app-card app-pagination {
+  display: block;
+  padding: 0 20px 20px;
+}
+
+.app-card .interactions {
+  padding: 8px 20px 0;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+

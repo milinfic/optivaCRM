@@ -1,0 +1,87 @@
+<app-page-header
+  [title]="opportunity?.title || 'Oportunidade'"
+  [subtitle]="opportunity?.client_name || ''"
+  icon="trending_up"
+  [showBack]="true"
+  actionLabel="Editar"
+  actionIcon="edit"
+  (action)="edit()"
+  (back)="back()">
+</app-page-header>
+
+<app-card>
+  <div class="divider"></div>
+
+  <div class="detail-body" *ngIf="opportunity">
+
+    <div class="summary-grid">
+
+      <app-panel title="Dados">
+        <app-detail-row label="Cliente" [value]="opportunity.client_name" icon="business"></app-detail-row>
+        <app-detail-row label="Tipo" [value]="opportunity.type_name" icon="category"></app-detail-row>
+        <app-detail-row label="Status" [value]="opportunity.status_name" icon="flag"></app-detail-row>
+        <app-detail-row label="Valor estimado" [value]="formatCurrency(opportunity.estimated_value)" icon="payments"></app-detail-row>
+        <app-detail-row label="Probabilidade" [value]="opportunity.probability + '%'" icon="percent"></app-detail-row>
+        <app-detail-row label="Previsão" [value]="formatDate(opportunity.expected_close_date)" icon="event"></app-detail-row>
+        <app-detail-row label="Descrição" [value]="opportunity.description" icon="notes"></app-detail-row>
+      </app-panel>
+
+      <app-panel title="Alterar status">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Novo status</mat-label>
+          <mat-select [value]="opportunity.opportunity_status_id" (selectionChange)="changeStatus($event.value)">
+            <mat-option *ngFor="let s of statuses" [value]="s.id">{{ s.status }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h4 class="sub-title">Histórico de status</h4>
+
+        <div class="history-item" *ngFor="let item of history">
+          <mat-icon class="history-icon">swap_horiz</mat-icon>
+          <div>
+            <div class="history-text">
+              {{ item.from_status_name || '—' }} → <strong>{{ item.to_status_name }}</strong>
+            </div>
+            <div class="history-meta">
+              {{ item.created_at | date:'dd/MM/yyyy HH:mm' }}
+              <span *ngIf="item.reason"> · {{ item.reason }}</span>
+            </div>
+          </div>
+        </div>
+
+        <app-empty-state *ngIf="history.length === 0"
+          icon="history" title="Sem alterações de status."></app-empty-state>
+      </app-panel>
+
+    </div>
+
+    <app-panel title="Comentários">
+      <form [formGroup]="commentForm" class="comment-form" (ngSubmit)="addComment()">
+        <mat-form-field appearance="outline" class="grow">
+          <mat-label>Novo comentário</mat-label>
+          <input matInput formControlName="detail">
+        </mat-form-field>
+
+        <button mat-raised-button class="btn-confirm" type="submit">
+          <mat-icon>send</mat-icon>
+          Enviar
+        </button>
+      </form>
+
+      <div class="comment" *ngFor="let comment of comments">
+        <mat-icon class="comment-icon">account_circle</mat-icon>
+        <div>
+          <div class="comment-text">{{ comment.detail }}</div>
+          <div class="comment-meta">
+            {{ comment.user_name || 'Sistema' }} · {{ comment.created_at | date:'dd/MM/yyyy HH:mm' }}
+          </div>
+        </div>
+      </div>
+
+      <app-empty-state *ngIf="comments.length === 0"
+        icon="chat_bubble" title="Nenhum comentário."></app-empty-state>
+    </app-panel>
+
+  </div>
+
+</app-card>

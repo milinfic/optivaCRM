@@ -1,0 +1,79 @@
+
+.login-page {
+  background: linear-gradient(0deg, var(--ui-login-gradient-start), var(--ui-bg-muted));
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep the Material outline neutral when a login field receives focus. */
+:host-context(html.theme-blue) .login-page .mat-mdc-form-field {
+  --mdc-outlined-text-field-focus-outline-color: #304363;
+  --mdc-outlined-text-field-focus-label-text-color: var(--ui-text-muted);
+}
+
+/* Remove the extra focus ring and shadow added to form controls in the blue theme. */
+:host-context(html.theme-blue) .login-page input:focus,
+:host-context(html.theme-blue) .login-page select:focus,
+:host-context(html.theme-blue) .login-page textarea:focus {
+  outline: none !important;
+  border-color: #304363 !important;
+  box-shadow: none !important;
+}
+
+.logo {
+  height: 100px; /* ajusta conforme seu layout */
+  width: auto;
+  object-fit: contain;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 50px;
+  background-color: var(--ui-login-card);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--ui-overlay-strong);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: var(--ui-login-title);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-confirm {
+  background-color: var(--ui-success-button);
+  color: var(--ui-white);
+  font-weight: 600;
+}
+
+.btn-confirm:hover:not(:disabled) {
+  background-color: var(--ui-success-button-hover);
+}
+
+.error {
+  color: var(--ui-error);
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    width: auto;
+    padding: 20px;
+    margin: 50px auto;
+  }
+
+  .form-container h2 {
+    font-size: 24px;
+  }
+}

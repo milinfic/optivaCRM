@@ -1,0 +1,45 @@
+<main class="dashboard-page" *ngIf="summary">
+    <header class="dashboard-heading">
+      <div class="welcome">
+        <span class="welcome-icon">👋</span>
+        <div>
+          <h1>Olá, Admin!</h1>
+          <p>Aqui está um resumo do seu desempenho hoje.</p>
+        </div>
+      </div>
+      <div class="date-chip"><mat-icon>calendar_month</mat-icon>{{ todayLabel }}<mat-icon class="date-chevron">expand_more</mat-icon></div>
+    </header>
+
+  <section class="grid-container metric-grid" aria-label="Resumo">
+    <app-dash-card title="Clientes" [value]="summary.clients"
+      [smallInfo]="summary.activeClients + ' ativo(s)'" smallInfoClass="geen-color" matIcon="groups"></app-dash-card>
+    <app-dash-card title="Oportunidades" [value]="summary.opportunities"
+      [smallInfo]="summary.wonOpportunities + ' ganha(s)'" smallInfoClass="blue-color" matIcon="trending_up"></app-dash-card>
+    <app-dash-card title="Pipeline" [value]="summary.pipelineValue" smallInfo="Valor estimado"
+      smallInfoClass="geen-color" matIcon="database"></app-dash-card>
+    <app-dash-card title="Novos clientes no mês" [value]="summary.clientsThisMonth" smallInfo="Mês atual"
+      smallInfoClass="blue-color" matIcon="calendar_month"></app-dash-card>
+  </section>
+
+  <section class="summary-grid summary-grid-2" aria-label="Detalhes do dashboard">
+    <app-panel variant="dashboard" title="Pipeline por status" icon="layers" [badge]="summary.pipeline.length + ' registro(s)'">
+      <table class="simple-table">
+        <thead><tr><th>Status</th><th>Qtd</th><th>Valor</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let row of summary.pipeline"><td><span class="status-pill">{{ row.status || '-' }}</span></td><td>{{ row.total }}</td><td>{{ formatCurrency(row.value) }}</td></tr>
+          <tr *ngIf="summary.pipeline.length === 0"><td colspan="3" class="empty">Sem oportunidades cadastradas.</td></tr>
+        </tbody>
+      </table>
+    </app-panel>
+
+    <app-panel variant="dashboard" title="Próximos contatos" icon="event" [badge]="summary.upcomingContacts.length + ' hoje'">
+      <table class="simple-table">
+        <thead><tr><th>Cliente</th><th>Assunto</th><th>Data</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let contact of summary.upcomingContacts"><td>{{ contact.client_name }}</td><td>{{ contact.subject }}</td><td>{{ contact.next_contact_date | date:'dd/MM/yyyy HH:mm' }}</td></tr>
+          <tr *ngIf="summary.upcomingContacts.length === 0"><td colspan="3" class="empty"><mat-icon>calendar_month</mat-icon><span>Nenhum contato agendado.</span></td></tr>
+        </tbody>
+      </table>
+    </app-panel>
+  </section>
+</main>

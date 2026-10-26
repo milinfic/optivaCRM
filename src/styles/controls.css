@@ -1,0 +1,157 @@
+/* Form field names share one typography across pages, tabs, and dialogs. */
+body label,
+body mat-label,
+body .mdc-floating-label {
+  font-family: var(--ui-compact-label-font-family) !important;
+  font-size: var(--ui-form-label-font-size) !important;
+  font-weight: var(--ui-form-label-font-weight) !important;
+  color: #475569 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+html.theme-blue body label,
+html.theme-blue body mat-label,
+html.theme-blue body .mdc-floating-label { color: #f0f5ff !important; }
+html.theme-dark body label,
+html.theme-dark body mat-label,
+html.theme-dark body .mdc-floating-label { color: var(--vsc-text-strong) !important; }
+
+/* Shared filter and create action buttons for every list page. */
+.contact-form .btn-save,
+.contact-form .btn-add-channel {
+  min-height: 36px;
+  height: 36px !important;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 7px !important;
+  background: var(--theme-accent, var(--ui-gray-800)) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-size: 11px;
+}
+
+.contact-form .btn-save:hover:not(:disabled),
+.contact-form .btn-add-channel:hover {
+  background: var(--theme-accent-strong, var(--ui-gray-900)) !important;
+}
+.contact-form .btn-save:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .contact-form .btn-save,
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .contact-form .btn-add-channel {
+  background: var(--ui-sidebar-active) !important;
+}
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .contact-form .btn-save:hover:not(:disabled),
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .contact-form .btn-add-channel:hover {
+  filter: brightness(1.08);
+}
+
+html.theme-dark body .contact-form .btn-save,
+html.theme-dark body .contact-form .btn-add-channel {
+  background: #3c3c3c !important;
+  border: 1px solid #555 !important;
+  color: #cccccc !important;
+}
+html.theme-dark body .contact-form .btn-save:hover:not(:disabled),
+html.theme-dark body .contact-form .btn-add-channel:hover {
+  background: #4a4a4a !important;
+}
+
+html.theme-blue body .contact-form .btn-save,
+html.theme-blue body .contact-form .btn-add-channel {
+  background: #172744 !important;
+  border: 1px solid #2a3b5c !important;
+  color: #c2d0e5 !important;
+}
+html.theme-blue body .contact-form .btn-save:hover:not(:disabled),
+html.theme-blue body .contact-form .btn-add-channel:hover {
+  background: #203657 !important;
+}
+
+.contact-form .modal-footer > button {
+  box-sizing: border-box;
+  flex: 0 0 94px;
+  width: 94px;
+  min-width: 94px;
+  min-height: 44px;
+  height: 44px !important;
+  padding: 0 10px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1;
+  cursor: pointer;
+}
+.contact-form .modal-footer > .btn-save { font-size: 12px; }
+.contact-form .modal-footer > .btn-save mat-icon {
+  display: block;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  line-height: 18px;
+}
+
+.contact-form .section-title .section-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  background: transparent !important;
+  color: var(--ui-success);
+  font-size: 18px !important;
+}
+.contact-form .channels-section-title .section-icon {
+  background: transparent !important;
+  color: var(--ui-info);
+}
+.contact-form .btn-add-channel mat-icon { color: currentColor; }
+html:not(.theme-dark):not(.theme-blue) body app-contact-form-dialog .section-icon,
+html.theme-blue body app-contact-form-dialog .section-icon,
+html.theme-dark body app-contact-form-dialog .section-icon {
+  background: transparent !important;
+}
+
+/* Compact clients list layout from the reference design. */
+.clients-page .clients-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 2px;
+}
+.clients-page .clients-title-row app-page-title { flex: 1 1 auto; min-width: 0; }
+.clients-page .clients-title-row app-btn-primary { flex: 0 0 auto; }
+.clients-page .ux-table thead th { padding: 8px 10px; }
+.clients-page .ux-table tbody td { padding: 7px 10px; }
+.clients-page .ux-table .badge { padding: 3px 8px; }
+.clients-page .btn-view,
+.clients-page .btn-edit,
+.clients-page .btn-delete { height: 24px; padding: 0 5px; }
+.clients-page .btn-view mat-icon,
+.clients-page .btn-edit mat-icon,
+.clients-page .btn-delete mat-icon { font-size: 17px; }
+.clients-page app-pagination .pagination { padding: 7px 10px; font-size: 9px; }
+.clients-page app-pagination .pagination-controls { gap: 0; }
+
+@media (max-width: 600px) {
+  .clients-page .clients-title-row { align-items: flex-start; }
+  .clients-page .clients-title-row app-btn-primary { margin-top: 3px; }
+}
+
+/* Default theme filter controls use the neutral gray palette. */
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .field-control {
+  border: 1px solid #A6A7AC !important;
+  background-color: #e6e9ee94 !important;
+  color: #334155 !important;
+}
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .field-control::placeholder {
+  color: #64748B !important;
+  opacity: 1;
+}
+

@@ -1,0 +1,71 @@
+/* Tabela */
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .ux-table thead th,
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .simple-table thead th,
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .users-table thead th,
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .detail-table thead th {
+  background-color: #F8F8F8 !important;
+}
+
+body .ux-table,
+body .simple-table,
+body .users-table,
+body .detail-table {
+  font-size: 12.5px !important;
+}
+
+body .crm-list-page .ux-table thead th,
+body .ux-table thead th,
+body .simple-table thead th,
+body .users-table thead th,
+body .detail-table thead th {
+  margin: 0 !important;
+  font-family: var(--ui-compact-label-font-family) !important;
+  color: #475569 !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+body .ux-table tbody td,
+body .simple-table tbody td,
+body .users-table tbody td,
+body .detail-table tbody td,
+body .ux-table .badge,
+body .simple-table .badge,
+body .users-table .badge,
+body .detail-table .badge {
+  font-size: 12.5px !important;
+}
+
+@media (max-width: 900px) {
+  .crm-list-page app-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .crm-list-page .ux-table {
+    width: 680px !important;
+    min-width: 680px !important;
+    table-layout: auto;
+  }
+}
+
+
+html.theme-dark body .ux-table thead th:first-child,
+html.theme-dark body .simple-table thead th:first-child,
+html.theme-dark body .users-table thead th:first-child,
+html.theme-dark body .detail-table thead th:first-child {
+  background: #2d2d2d !important;
+}
+html.theme-blue body .ux-table thead th:first-child,
+html.theme-blue body .simple-table thead th:first-child,
+html.theme-blue body .users-table thead th:first-child,
+html.theme-blue body .detail-table thead th:first-child {
+  background: #192945 !important;
+}
+

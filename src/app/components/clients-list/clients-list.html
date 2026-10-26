@@ -1,0 +1,42 @@
+<section class="crm-list-page clients-page">  
+  <div class="clients-title-row">
+    <app-page-title
+      icon="real_estate_agent"
+      title="Clientes"
+      subtitle="Consulte e gerencie os clientes cadastrados.">
+    </app-page-title>
+
+    <app-btn-primary title="Novo cliente" icon="add" (clicked)="create()"></app-btn-primary>
+  </div>
+  
+  <app-card class="filter-card">
+    <app-filters
+      [fields]="filterFields"
+      [loading]="loading"
+      (valueChange)="onFilterChange($event)"
+      (apply)="applyFilter()"
+      (clear)="clearFilter()">
+    </app-filters>
+  </app-card>
+  
+
+  <app-card class="filter-card">
+    <app-table
+      [datas]="clients"
+      [headers]="headers"
+      [loading]="loading"
+      [showView]="true"
+      emptyMessage="Nenhum cliente encontrado."
+      (actionEventTableComponent)="onAction($event)">
+    </app-table>
+
+    <app-pagination
+      [total]="total"
+      [page]="page"
+      [limit]="limit"
+      [visibleCount]="clients.length"
+      [loading]="loading"
+      (pageChange)="changePage($event)">
+    </app-pagination>
+  </app-card>
+</section>

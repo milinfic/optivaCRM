@@ -1,0 +1,41 @@
+<aside class="sidebar">
+
+  <a routerLink="/dashboard" class="sidebar-brand" aria-label="Optiva CRM — início">
+    <img src="assets/logo-menu-light.png" alt="Logo Optiva CRM" class="sidebar-brand-image sidebar-brand-image-light" />
+    <img src="assets/logo-menu.png" alt="" aria-hidden="true" class="sidebar-brand-image sidebar-brand-image-dark" />
+  </a>
+
+  <nav class="sidebar-nav">
+
+    <a *ngFor="let item of mainItems"
+       class="sidebar-item"
+       [class.active]="isActive(item.link)"
+       [routerLink]="item.link"
+       routerLinkActive="active">
+
+      <mat-icon class="item-icon">{{ item.icon }}</mat-icon>
+      <span class="item-label">{{ item.label }}</span>
+    </a>
+
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-separator"></div>
+
+    <a *ngFor="let item of bottomItems"
+       class="sidebar-item"
+       [class.active]="isActive(item.link)"
+       [routerLink]="item.link"
+       routerLinkActive="active">
+
+      <mat-icon class="item-icon">{{ item.icon }}</mat-icon>
+      <span class="item-label">{{ item.label }}</span>
+    </a>
+
+    <div class="sidebar-product-card" aria-label="Optiva CRM">
+      <img src="assets/logo3.png" alt="" aria-hidden="true" class="sidebar-product-icon" />
+      <span class="sidebar-product-name">Optiva<span>CRM</span></span>
+    </div>
+  </div>
+
+</aside>

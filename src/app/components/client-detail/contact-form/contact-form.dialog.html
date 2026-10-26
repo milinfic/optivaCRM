@@ -1,0 +1,73 @@
+<form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-modal-shell [title]="data.title" [icon]="data.icon" (close)="dialogRef.close(false)">
+    <div modal-body>
+      <div class="modal-card">
+
+        <h6 class="section-title">
+          <mat-icon class="section-icon">badge</mat-icon>
+          Dados do contato
+        </h6>
+
+        <div class="form-row">
+          <div class="field col-full">
+            <label>Nome *</label>
+            <input class="field-control" formControlName="name" placeholder="Nome do contato">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field col">
+            <label>Cargo</label>
+            <input class="field-control" formControlName="position" placeholder="Ex.: Comprador">
+          </div>
+
+          <div class="field col">
+            <label>Departamento</label>
+            <input class="field-control" formControlName="department" placeholder="Ex.: Suprimentos">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-card">
+        <h6 class="section-title channels-section-title">
+          <mat-icon class="section-icon">contact_phone</mat-icon>
+          Canais de contato
+        </h6>
+
+        <div formArrayName="channels">
+          <div class="form-row channel-row" *ngFor="let channel of channels.controls; let i = index"
+            [formGroupName]="i">
+
+            <div class="field col">
+              <label>Tipo</label>
+              <select class="field-control" formControlName="contact_type_id">
+                <option [ngValue]="null">--</option>
+                <option *ngFor="let t of contactTypes" [ngValue]="t.id">{{ t.description }}</option>
+              </select>
+            </div>
+
+            <div class="field col-2">
+              <label>Valor</label>
+              <div class="channel-value-control">
+                <input class="field-control" formControlName="value" placeholder="e-mail, telefone...">
+                <button type="button" class="remove-channel" aria-label="Excluir canal" title="Excluir canal"
+                  (click)="removeChannel(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <app-btn-primary title="Editar canal" icon="add" (clicked)="addChannel()"></app-btn-primary>
+
+      </div>
+    </div>
+
+    <div modal-footer>
+      <app-btn-secundary type="button" title="Cancelar" (clicked)="dialogRef.close(false)"></app-btn-secundary>
+      <app-btn-primary type="submit" title="Editar cliente" icon="save" [disabled]="loading"></app-btn-primary>
+    </div>
+  </app-modal-shell>  
+</form>

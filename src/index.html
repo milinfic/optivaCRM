@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Optiva CRM</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/optiva.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <script>
+    (() => {
+      const currentPath = window.location.pathname.replace(/\/+$/, '');
+      if (currentPath.endsWith('/login')) return;
+
+      let theme = 'light';
+      try { theme = localStorage.getItem('optiva-theme-v3') || 'light'; } catch {}
+      if (theme !== 'dark' && theme !== 'blue' && theme !== 'white') return;
+
+      document.documentElement.classList.add(`theme-${theme}`);
+      const stylesheet = document.createElement('link');
+      stylesheet.id = `${theme}-theme-stylesheet`;
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = new URL(`themes/${theme}-theme.css`, document.baseURI).href;
+      document.head.appendChild(stylesheet);
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

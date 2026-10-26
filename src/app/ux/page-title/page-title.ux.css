@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 5px 8px 10px;
+}
+
+.title-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 35px;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  color: var(--ui-accent-cyan) !important;
+  background: transparent;
+}
+
+.title-icon mat-icon {
+  width: 26px;
+  height: 26px;
+  font-size: 26px;
+  color: var(--ui-accent-cyan) !important;
+}
+
+.title-copy {
+  min-width: 0;
+}
+
+.title-copy h1 {
+  margin: 0;
+  color: var(--ui-text-strong);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: var(--ui-page-title-font-weight, 600);
+  overflow-wrap: anywhere;
+}
+
+.title-copy p {
+  margin: 2px 0 0;
+  color: var(--ui-text-muted);
+  font-size: 12.5px;
+}
+
+@media (max-width: 600px) {
+  .page-title { padding-left: 0; }
+  .title-copy h1 { font-size: 18px; }
+  .title-copy p { font-size: 12px; }
+}

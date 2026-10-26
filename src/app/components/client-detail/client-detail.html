@@ -1,0 +1,101 @@
+
+<section class="crm-list-page client-detail-page">
+  <app-page-header
+  [title]="client?.name || 'Cliente'"
+  [subtitle]="client?.code ? 'Código: ' + client.code : 'Detalhes do cliente'"
+  icon="real_estate_agent"
+  [showBack]="true"
+  actionLabel="Editar Cliente"
+  actionIcon="edit"
+  (action)="edit()"
+  (back)="back()">
+  </app-page-header>
+  <!-- <div class="clients-title-row">
+    <app-btn-back class="client-detail-back" (clicked)="back()"></app-btn-back>
+
+    <app-page-title
+      icon="real_estate_agent"
+      [title]="client?.name || 'Cliente'"
+      [subtitle]="client?.code ? 'Código: ' + client.code : 'Detalhes do cliente'">
+    </app-page-title>
+
+    <app-btn-primary title="Editar cliente" icon="edit" (clicked)="edit()"></app-btn-primary>
+  </div> -->
+
+  <app-card>
+    <div class="detail-body" *ngIf="client">
+      <mat-tab-group class="detail-tabs" mat-stretch-tabs="true">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon aria-hidden="true">business</mat-icon>
+            <span>Dados do cliente</span>
+          </ng-template>
+
+          <div class="summary-grid summary-grid-3">
+            <app-panel title="Dados gerais">
+              <ng-container *ngFor="let item of generalData">
+                <app-detail-row
+                  [label]="item.label"
+                  [value]="item.value"
+                  [icon]="item.icon">
+                </app-detail-row>
+              </ng-container>
+            </app-panel>
+
+            <app-panel title="Comercial">
+              <ng-container *ngFor="let item of commercialData">
+                <app-detail-row
+                  [label]="item.label"
+                  [value]="item.value"
+                  [icon]="item.icon">
+                </app-detail-row>
+              </ng-container>
+            </app-panel>
+
+            <app-panel title="Financeiro">
+              <ng-container *ngFor="let item of financialData">
+                <app-detail-row
+                  [label]="item.label"
+                  [value]="item.value"
+                  [icon]="item.icon">
+                </app-detail-row>
+              </ng-container>
+            </app-panel>
+          </div>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon aria-hidden="true">contacts</mat-icon>
+            <span>Contatos</span>
+          </ng-template>
+          <app-client-contacts [clientId]="clientId"></app-client-contacts>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon aria-hidden="true">location_on</mat-icon>
+            <span>Endereços</span>
+          </ng-template>
+          <app-client-addresses [clientId]="clientId"></app-client-addresses>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon aria-hidden="true">description</mat-icon>
+            <span>Documentos</span>
+          </ng-template>
+          <app-client-documents [clientId]="clientId"></app-client-documents>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon aria-hidden="true">history</mat-icon>
+            <span>Histórico</span>
+          </ng-template>
+          <app-client-history [clientId]="clientId"></app-client-history>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </app-card>
+</section>

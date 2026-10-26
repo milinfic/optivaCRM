@@ -1,0 +1,43 @@
+:host { display: block; }
+
+.settings-page { grid-template-columns: minmax(0, 1fr); min-width: 0; }
+.settings-page > app-card { min-width: 0; }
+.settings-tabs { box-sizing: border-box; min-width: 0; }
+:host ::ng-deep .settings-tabs .mat-mdc-tab-header,
+:host ::ng-deep .settings-tabs .mat-mdc-tab-header-pagination {
+  background: var(--ui-header-bg) !important;
+}
+:host ::ng-deep .settings-tabs .mat-mdc-tab-header { border-bottom: 1px solid var(--ui-border-soft); }
+:host ::ng-deep .settings-tabs .mat-mdc-tab { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+:host ::ng-deep .settings-tabs .mat-mdc-tab .mdc-tab__text-label { color: var(--ui-header-text) !important; }
+:host ::ng-deep .settings-tabs .mat-mdc-tab:hover { background: var(--ui-bg-hover) !important; }
+:host ::ng-deep .settings-tabs .mat-mdc-tab.mdc-tab--active { background: transparent !important; }
+:host ::ng-deep .settings-tabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label { color: var(--theme-accent, var(--ui-primary)) !important; }
+:host ::ng-deep .settings-tabs .mdc-tab-indicator__content--underline {
+  border: 0 !important; height: 3px !important; border-radius: 2px 2px 0 0;
+  background: linear-gradient(90deg, var(--ui-primary-dark), var(--theme-accent, var(--ui-primary))) !important;
+}
+:host ::ng-deep .settings-tabs .mat-mdc-tab-header-pagination-chevron { border-color: var(--ui-text-muted) !important; }
+
+.users-tab { padding: 14px 4px 4px; }
+.tab-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+:host ::ng-deep .tab-toolbar .btn-confirm {
+  min-height: 36px; height: 36px !important; padding: 0 14px; border-radius: 7px !important;
+  background: var(--ui-gray-800) !important; color: var(--ui-white) !important; box-shadow: none !important; font-size: 11px;
+}
+:host ::ng-deep .tab-toolbar .btn-confirm:hover { background: var(--ui-gray-900) !important; }
+
+.users-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.users-table thead th {
+  padding: 9px 12px; background: var(--ui-bg-subtle); color: var(--ui-text-muted); border-bottom: 1px solid var(--ui-border-soft);
+  font-size: 9px; font-weight: 700; text-align: left; text-transform: uppercase;
+}
+.users-table tbody td { padding: 9px 12px; border-bottom: 1px solid var(--ui-border-soft); color: var(--ui-text-secondary); }
+.users-table tbody tr:hover { background: var(--ui-bg-subtle); }
+.actions-column { width: 120px; text-align: center; }
+
+@media (max-width: 1200px) {
+  .settings-tabs { padding: 0 0 10px; }
+  .users-tab { overflow-x: auto; }
+  .users-table { min-width: 520px; }
+}

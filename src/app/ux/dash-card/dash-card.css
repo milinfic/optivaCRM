@@ -1,0 +1,175 @@
+/* Host sizing keeps each card constrained by its dashboard grid cell. */
+:host {
+  display: block;
+  min-width: 0;
+}
+
+/* Main metric card surface and positioning context for the accent shape. */
+.revenue-card {
+  position: relative;
+  height: 100%;
+  min-height: 94px;
+  padding: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--ui-bg-subtle);
+  border: 1px solid var(--ui-border);
+  border-radius: 9px;
+  box-shadow: 0 2px 6px var(--ui-shadow-card);
+}
+
+/* Decorative lower corner glow, colored by the metric-specific rules below. */
+.revenue-card::after {
+  position: absolute;
+  content: '';
+  width: 102px;
+  height: 55px;
+  right: -9px;
+  bottom: -18px;
+  border-radius: 72% 0 0 0;
+  background: linear-gradient(145deg, transparent 15%, var(--ui-info-bg) 100%);
+  opacity: .8;
+}
+
+/* Places the metric icon beside the title, value, and supporting detail. */
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* Stacks the text content and allows it to shrink in narrow cards. */
+.card-info {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+/* Metric label, value, and small supporting status. */
+.title {
+  color: var(--ui-text-muted);
+  font-size: 10px;
+}
+
+.value {
+  margin: 3px 0;
+  color: var(--ui-text-strong);
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.metric-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  width: fit-content;
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+/* Compact icon used beside the supporting status text. */
+.metric-info-icon {
+  width: 11px;
+  height: 11px;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.geen-color { color: var(--ui-success); }
+.blue-color { color: var(--ui-info); }
+
+/* Icon alignment and size; color comes from the active theme's tokens. */
+.card-icon-box {
+  order: -1;
+  display: flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.card-icon-box mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+
+.card-icon-box.groups { color: var(--dash-icon-clients, var(--ui-success)); }
+.card-icon-box.trending_up { color: var(--dash-icon-opportunities, var(--ui-info)); }
+.card-icon-box.database { color: var(--dash-icon-pipeline, var(--ui-purple)); }
+.card-icon-box.calendar_month { color: var(--dash-icon-new-clients, var(--ui-warning)); }
+
+/* Gives the card corner glow a hue that matches its metric. */
+.revenue-card.metric-groups::after { background: linear-gradient(145deg, transparent 12%, var(--ui-success-wave) 100%); }
+.revenue-card.metric-trending_up::after { background: linear-gradient(145deg, transparent 12%, var(--ui-info-wave) 100%); }
+.revenue-card.metric-database::after { background: linear-gradient(145deg, transparent 12%, var(--ui-purple-wave) 100%); }
+.revenue-card.metric-calendar_month::after { background: linear-gradient(145deg, transparent 12%, var(--ui-warning-wave) 100%); }
+
+/* Default and white theme card surfaces. */
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card {
+  background: #fbfcff;
+  border-color: #dce3e9;
+  box-shadow: 0 2px 5px rgba(31, 55, 86, .12);
+}
+:host-context(html.theme-white) .revenue-card {
+  background: #fff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 7px rgba(31, 55, 86, .08);
+}
+:host-context(html.theme-white) .revenue-card::after { opacity: .7; }
+:host-context(html.theme-white) .card-content { gap: 10px; }
+:host-context(html.theme-white) .geen-color { color: #0eaa70; }
+:host-context(html.theme-white) .blue-color { color: #2672e8; }
+:host-context(html.theme-white) .revenue-card.metric-groups::after {
+  background: linear-gradient(145deg, transparent 8%, #8fe2c7 100%);
+}
+:host-context(html.theme-white) .revenue-card.metric-trending_up::after { background: linear-gradient(145deg, transparent 8%, #a9caff 100%); }
+:host-context(html.theme-white) .revenue-card.metric-database::after { background: linear-gradient(145deg, transparent 8%, #d8a9f0 100%); }
+:host-context(html.theme-white) .revenue-card.metric-calendar_month::after { background: linear-gradient(145deg, transparent 8%, #ffc58f 100%); }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card::after { opacity: .7; }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .card-content { gap: 10px; }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .geen-color { color: #0eaa70; }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .blue-color { color: #2672e8; }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card.metric-groups::after {
+  background: linear-gradient(145deg, transparent 8%, #8fe2c7 100%);
+}
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card.metric-trending_up::after { background: linear-gradient(145deg, transparent 8%, #a9caff 100%); }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card.metric-database::after { background: linear-gradient(145deg, transparent 8%, #d8a9f0 100%); }
+:host-context(html:not(.theme-dark):not(.theme-blue):not(.theme-white)) .revenue-card.metric-calendar_month::after { background: linear-gradient(145deg, transparent 8%, #ffc58f 100%); }
+
+/* Blue theme card surface, borders, and readable text colors. */
+:host-context(html.theme-blue) .revenue-card {
+  color: var(--blue-text);
+  box-shadow: none;
+}
+:host-context(html.theme-blue) .revenue-card.metric-groups { background: var(--ui-header-bg); border-color: #0ab781; }
+:host-context(html.theme-blue) .revenue-card.metric-trending_up { background: var(--ui-header-bg); border-color: #347cff; }
+:host-context(html.theme-blue) .revenue-card.metric-database { background: var(--ui-header-bg); border-color: #a74bd7; }
+:host-context(html.theme-blue) .revenue-card.metric-calendar_month { background: var(--ui-header-bg); border-color: #ec7b24; }
+:host-context(html.theme-blue) .revenue-card.metric-groups::after { background: linear-gradient(145deg, transparent, rgba(12, 183, 129, .2)); }
+:host-context(html.theme-blue) .revenue-card.metric-trending_up::after { background: linear-gradient(145deg, transparent, rgba(52, 124, 255, .22)); }
+:host-context(html.theme-blue) .revenue-card.metric-database::after { background: linear-gradient(145deg, transparent, rgba(167, 75, 215, .22)); }
+:host-context(html.theme-blue) .revenue-card.metric-calendar_month::after { background: linear-gradient(145deg, transparent, rgba(236, 123, 36, .2)); }
+:host-context(html.theme-blue) .value { color: #f6f8ff; }
+:host-context(html.theme-blue) .title { color: var(--blue-muted); }
+:host-context(html.theme-blue) .geen-color { color: #25d596; }
+:host-context(html.theme-blue) .blue-color { color: #59a0ff; }
+
+/* VS Code dark theme card surface and text colors. */
+:host-context(html.theme-dark) .revenue-card {
+  background: var(--ui-header-bg);
+  color: var(--vsc-text);
+  border-color: var(--vsc-border);
+  box-shadow: none;
+}
+:host-context(html.theme-dark) .title { color: var(--vsc-muted); }
+:host-context(html.theme-dark) .value { color: #f0f0f0; }
+:host-context(html.theme-dark) .revenue-card::after { background: linear-gradient(135deg, transparent, #2a2d2e); }
+

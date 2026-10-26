@@ -1,0 +1,22 @@
+<div class="tab-content" [formGroup]="clientForm">
+
+  <div class="form-row">
+    <div class="field col">
+      <label>Origem do lead</label>
+      <input class="field-control" formControlName="lead_source" placeholder="Ex.: Indicação">
+    </div>
+
+    <div class="field col">
+      <label>Campanha</label>
+      <input class="field-control" formControlName="campaign" placeholder="Nome da campanha">
+    </div>
+  </div>
+
+  <div class="toggles column">
+    <label class="toggle-item"><input type="checkbox" formControlName="email_marketing"> E-mail marketing</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="whatsapp_marketing"> WhatsApp marketing</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="sms_marketing"> SMS marketing</label>
+    <label class="toggle-item"><input type="checkbox" formControlName="lgpd_consent"> Consentimento LGPD</label>
+  </div>
+
+</div>

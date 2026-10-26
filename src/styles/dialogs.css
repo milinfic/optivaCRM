@@ -1,0 +1,351 @@
+/* =========================================================
+   Modais do sistema — estilo "Optiva" (header gradiente)
+   ========================================================= */
+
+/* Overlay do Material Dialog sem padding/arredondamento padrão */
+.mat-mdc-dialog-container {
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: 0 15px 35px var(--ui-overlay) !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Keep dialogs and their backdrop above the topbar and sidebar layers. */
+.cdk-overlay-container {
+  z-index: 2000 !important;
+}
+
+/* A pane (elemento que o Angular Material usa para a largura) em 70vw */
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+  width: 70vw !important;
+  max-width: 70vw !important;
+}
+
+.cdk-overlay-pane.client-form-dialog {
+  width: min(90vw, 1200px) !important;
+  max-width: 90vw !important;
+}
+
+.cdk-overlay-pane.client-detail-dialog {
+  width: min(90vw, 1200px) !important;
+  max-width: 90vw !important;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 90vh !important;
+}
+
+/* ---------- Header ---------- */
+.modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  background: linear-gradient(135deg, var(--ui-settings-gradient-start), var(--ui-settings-gradient-end));
+  color: var(--ui-white);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ui-white) !important;
+}
+
+.modal-title .title-icon {
+  font-size: 20px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--ui-white);
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0;
+  opacity: 1;
+}
+
+.modal-close:hover {
+  opacity: 0.8;
+}
+
+/* ---------- Corpo ---------- */
+.modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: calc(90vh - 130px);
+  background: var(--ui-neutral-background);
+  padding: 20px 22px;
+
+  /* Esconde a barra de rolagem, mas mantém o scroll pela roda do mouse */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE / Edge antigo */
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}
+
+.modal-card {
+  background: var(--ui-white);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 12px var(--ui-overlay-soft);
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--ui-settings-gradient-start);
+  border-bottom: 1px solid var(--ui-border-soft);
+  padding-bottom: 8px;
+  margin: 0 0 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title .section-icon {
+  font-size: 15px;
+}
+
+/* ---------- Campos (visual Bootstrap) ---------- */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 11px;
+  color: var(--ui-gray-500);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 5px;
+}
+
+.field .field-control {
+  background: var(--ui-bg-subtle);
+  border: 1px solid var(--ui-border-strong);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--ui-settings-gradient-start);
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field .field-control:focus {
+  outline: none;
+  border-color: var(--ui-settings-gradient-end);
+  background: var(--ui-white);
+}
+
+/* grid responsivo */
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-row .col {
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+
+.form-row .col-2 {
+  flex: 2 1 300px;
+}
+
+.form-row .col-full {
+  flex: 1 1 100%;
+}
+
+/* Contact dialog channel controls; general modal styles stay shared above. */
+.mat-mdc-dialog-surface app-contact-form-dialog {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.mat-mdc-dialog-surface app-client-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.mat-mdc-dialog-surface app-client-detail {
+  display: block;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.mat-mdc-dialog-surface app-contact-form-dialog .contact-form {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.contact-form .modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.contact-form .modal-body::-webkit-scrollbar { display: none; }
+.contact-form .modal-footer { flex: 0 0 auto; }
+.contact-form .modal-card {
+  background: var(--ui-bg-subtle);
+  border: 1px solid var(--ui-border);
+  border-radius: 9px;
+  box-shadow: 0 2px 6px var(--ui-shadow-card);
+}
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body app-contact-form-dialog .contact-form .modal-card {
+  background: #fbfcff;
+  border-color: #dce3e9;
+  box-shadow: 0 2px 5px rgba(31, 55, 86, .12);
+}
+html.theme-white body app-contact-form-dialog .contact-form .modal-card {
+  background: #fff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 7px rgba(31, 55, 86, .08);
+}
+html.theme-blue body app-contact-form-dialog .contact-form .modal-card {
+  background: var(--ui-header-bg);
+  border-color: #263858;
+  box-shadow: none;
+}
+html.theme-blue body app-contact-form-dialog .contact-form .modal-body,
+html.theme-blue body app-contact-form-dialog .contact-form .modal-footer {
+  background: #121f39 !important;
+  color: #eaf1ff;
+}
+html.theme-blue body app-contact-form-dialog .contact-form .modal-footer {
+  border-top-color: #223452 !important;
+}
+html.theme-dark body app-contact-form-dialog .contact-form .modal-card {
+  background: var(--ui-header-bg);
+  border-color: var(--vsc-border);
+  box-shadow: none;
+}
+.contact-form .channels-section-title { margin-top: 18px; }
+.contact-form .channel-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(0, 2fr);
+  gap: 12px;
+  margin-bottom: 2px;
+}
+.contact-form .channel-row .field { min-width: 0; }
+.contact-form .channel-value-control { display: flex; align-items: center; gap: 8px; }
+.contact-form .channel-value-control .field-control { flex: 1 1 auto; min-width: 0; }
+.contact-form .remove-channel {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ui-error);
+  cursor: pointer;
+}
+.contact-form .remove-channel mat-icon { width: 20px; height: 20px; font-size: 20px; }
+.contact-form .remove-channel:hover { background: transparent; color: var(--ui-error-deep); }
+.contact-form .btn-add-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.contact-form .btn-add-channel mat-icon { width: 18px; height: 18px; font-size: 18px; }
+
+@media (max-width: 600px) {
+  .contact-form .channel-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+
+/* ---------- Rodapé ---------- */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
+  background: var(--ui-white);
+  border-top: 1px solid var(--ui-border-soft);
+}
+
+.modal-footer > [modal-footer] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ---------- Botões dos modais ---------- */
+/* Botão secundário (Cancelar) */
+.btn-secondary {
+  height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--ui-border-strong) !important;
+  border-radius: 8px !important;
+  color: var(--ui-settings-gradient-start) !important;
+  background: var(--ui-white) !important;
+  font-weight: 500;
+  box-shadow: none !important;
+}
+
+.btn-secondary:hover {
+  background: var(--ui-bg-hover) !important;
+}
+
+/* Botão primário (Salvar/Confirmar) — verde do sistema */
+.btn-save {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px !important;
+  background: var(--ui-success-button) !important;
+  color: var(--ui-white) !important;
+  font-weight: 500;
+  box-shadow: 0 2px 6px var(--ui-shadow-success) !important;
+}
+
+.btn-save:hover {
+  background: var(--ui-success-button-hover) !important;
+}
+
+.btn-save:disabled {
+  background: var(--ui-disabled-success) !important;
+  box-shadow: none !important;
+}
+
+.btn-save .mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+

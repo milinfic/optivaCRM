@@ -1,0 +1,88 @@
+<app-card>
+
+  <app-page-header
+    [title]="isEdit ? 'Editar oportunidade' : 'Nova oportunidade'"
+    icon="trending_up"
+    [showBack]="true"
+    (back)="cancel()">
+  </app-page-header>
+
+  <div class="divider"></div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-padding">
+
+    <div class="modal-card">
+      <h6 class="section-title">
+        <mat-icon class="section-icon">info</mat-icon>
+        Dados da oportunidade
+      </h6>
+
+      <div class="form-row">
+        <div class="field col-full">
+          <label>Título *</label>
+          <input class="field-control" formControlName="title" placeholder="Título da oportunidade">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field col">
+          <label>Cliente *</label>
+          <select class="field-control" formControlName="client_id">
+            <option [ngValue]="null">--</option>
+            <option *ngFor="let c of clients" [ngValue]="c.id">{{ c.name }}</option>
+          </select>
+        </div>
+
+        <div class="field col">
+          <label>Tipo</label>
+          <select class="field-control" formControlName="opportunity_type_id">
+            <option [ngValue]="null">--</option>
+            <option *ngFor="let t of types" [ngValue]="t.id">{{ t.type }}</option>
+          </select>
+        </div>
+
+        <div class="field col">
+          <label>Status</label>
+          <select class="field-control" formControlName="opportunity_status_id">
+            <option [ngValue]="null">--</option>
+            <option *ngFor="let s of statuses" [ngValue]="s.id">{{ s.status }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field col">
+          <label>Valor estimado</label>
+          <input class="field-control" type="number" formControlName="estimated_value" placeholder="0.00">
+        </div>
+
+        <div class="field col">
+          <label>Probabilidade (%)</label>
+          <input class="field-control" type="number" min="0" max="100" formControlName="probability" placeholder="0">
+        </div>
+
+        <div class="field col">
+          <label>Previsão de fechamento</label>
+          <input class="field-control" type="date" formControlName="expected_close_date">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field col-full">
+          <label>Descrição</label>
+          <textarea class="field-control" rows="3" formControlName="description" placeholder="Descrição da oportunidade"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <app-btn-secundary type="button" title="Cancelar" (clicked)="cancel()"></app-btn-secundary>
+      <button type="submit" class="btn-save" [disabled]="loading">
+        <mat-icon>check</mat-icon>
+        {{ isEdit ? 'Atualizar' : 'Salvar' }}
+      </button>
+    </div>
+
+  </form>
+
+</app-card>

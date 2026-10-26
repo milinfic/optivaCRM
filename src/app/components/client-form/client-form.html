@@ -1,0 +1,85 @@
+<ng-container *ngIf="dialogRef; else routeForm">
+  <form class="client-form-dialog" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <app-modal-shell [title]="isEdit ? 'Editar cliente' : 'Novo cliente'" icon="groups" (close)="cancel()">
+      <div modal-body>
+        <div class="modal-card">
+          <ng-container *ngTemplateOutlet="clientFields"></ng-container>
+        </div>
+      </div>
+
+      <div modal-footer>
+        <app-btn-secundary type="button" title="Cancelar" (clicked)="cancel()"></app-btn-secundary>
+        <app-btn-primary type="submit" [title]="isEdit ? 'Atualizar' : 'Salvar'" icon="save"
+          [disabled]="loading"></app-btn-primary>
+      </div>
+    </app-modal-shell>
+  </form>
+</ng-container>
+
+<ng-template #routeForm>
+  <app-card>
+    <app-page-header [title]="isEdit ? 'Editar cliente' : 'Novo cliente'" icon="groups" [showBack]="true"
+      (back)="cancel()">
+    </app-page-header>
+
+    <div class="divider"></div>
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="form-padding">
+      <ng-container *ngTemplateOutlet="clientFields"></ng-container>
+
+      <div class="form-actions">
+        <app-btn-secundary type="button" title="Cancelar" (clicked)="cancel()"></app-btn-secundary>
+        <button type="submit" class="btn-save" [disabled]="loading">
+          <mat-icon>check</mat-icon>
+          {{ isEdit ? 'Atualizar' : 'Salvar' }}
+        </button>
+      </div>
+    </form>
+  </app-card>
+</ng-template>
+
+<ng-template #clientFields>
+  <mat-tab-group class="client-form-tabs" [mat-stretch-tabs]="true">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-hidden="true">business</mat-icon>
+        <span>Dados principais</span>
+      </ng-template>
+      <app-client-basic-tab [clientForm]="clientForm" [segments]="segments" [groups]="groups"
+        [clientTypes]="clientTypes">
+      </app-client-basic-tab>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-hidden="true">trending_up</mat-icon>
+        <span>Comercial</span>
+      </ng-template>
+      <app-client-commercial-tab [clientForm]="commercialForm"></app-client-commercial-tab>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-hidden="true">account_balance</mat-icon>
+        <span>Financeiro</span>
+      </ng-template>
+      <app-client-financial-tab [clientForm]="financialForm"></app-client-financial-tab>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-hidden="true">settings</mat-icon>
+        <span>Configurações</span>
+      </ng-template>
+      <app-client-settings-tab [clientForm]="settingsForm"></app-client-settings-tab>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-hidden="true">campaign</mat-icon>
+        <span>Marketing</span>
+      </ng-template>
+      <app-client-marketing-tab [clientForm]="marketingForm"></app-client-marketing-tab>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>
