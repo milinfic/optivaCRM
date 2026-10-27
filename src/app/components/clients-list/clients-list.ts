@@ -166,10 +166,10 @@ export class ClientsList implements OnInit {
   }
 
   openDetails(clientId: number) {
-    if (window.matchMedia('(max-width: 700px)').matches) {
+    // if (window.matchMedia('(max-width: 700px)').matches) {
       this.router.navigate(['/clients', clientId]);
       return;
-    }
+    // }
 
     this.dialog.open(ClientDetail, {
       width: '90vw',

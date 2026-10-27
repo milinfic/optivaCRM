@@ -4,8 +4,8 @@
   flex-direction: column;
   width: 100%;
   min-height: 0;
-  max-height: 90vh;
-  overflow: hidden;
+  /* max-height: 90vh; */
+  /* overflow: hidden; */
 }
 
 .client-form-dialog {
@@ -45,5 +45,23 @@ app-modal-shell {
 @media (max-width: 900px) {
   .form-row {
     flex-direction: column;
+  }
+
+  .form-footer {
+    display: flex;
+    position: fixed;
+    bottom: 5px;
+    z-index: 1;
+    justify-content: end;
+    width: 90%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-content {
+    max-height: 60dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }

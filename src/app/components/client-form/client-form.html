@@ -1,5 +1,5 @@
 <ng-container *ngIf="dialogRef; else routeForm">
-  <form class="client-form-dialog" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <form class="client-form-dialog contact-form" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <app-modal-shell [title]="isEdit ? 'Editar cliente' : 'Novo cliente'" icon="groups" (close)="cancel()">
       <div modal-body>
         <div class="modal-card">
@@ -9,7 +9,7 @@
 
       <div modal-footer>
         <app-btn-secundary type="button" title="Cancelar" (clicked)="cancel()"></app-btn-secundary>
-        <app-btn-primary type="submit" [title]="isEdit ? 'Atualizar' : 'Salvar'" icon="save"
+        <app-btn-primary type="submit" title="Salvar" icon="save"
           [disabled]="loading"></app-btn-primary>
       </div>
     </app-modal-shell>
@@ -18,23 +18,47 @@
 
 <ng-template #routeForm>
   <app-card>
-    <app-page-header [title]="isEdit ? 'Editar cliente' : 'Novo cliente'" icon="groups" [showBack]="true"
+
+    <!-- Cabeçalho -->
+    <app-page-header
+      [title]="isEdit ? 'Editar cliente' : 'Novo cliente'"
+      icon="groups"
+      [showBack]="true"
       (back)="cancel()">
     </app-page-header>
 
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
 
-    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="form-padding">
-      <ng-container *ngTemplateOutlet="clientFields"></ng-container>
+    <!-- Conteúdo rolável -->
+    <div class="form-content">
+      <form
+        [formGroup]="clientForm"
+        (ngSubmit)="onSubmit()">
 
-      <div class="form-actions">
-        <app-btn-secundary type="button" title="Cancelar" (clicked)="cancel()"></app-btn-secundary>
-        <button type="submit" class="btn-save" [disabled]="loading">
-          <mat-icon>check</mat-icon>
-          {{ isEdit ? 'Atualizar' : 'Salvar' }}
-        </button>
-      </div>
-    </form>
+        <ng-container
+          *ngTemplateOutlet="clientFields">
+        </ng-container>
+
+      </form>
+    </div>
+
+    <!-- Rodapé fixo -->
+    <div class="form-footer">
+      <app-btn-secundary
+        type="button"
+        title="Cancelar"
+        (clicked)="cancel()">
+      </app-btn-secundary>
+
+      <app-btn-primary
+        type="button"
+        icon="save"
+        title="Salvar"
+        [disabled]="loading"
+        (clicked)="onSubmit()">
+      </app-btn-primary>
+    </div>
+
   </app-card>
 </ng-template>
 
