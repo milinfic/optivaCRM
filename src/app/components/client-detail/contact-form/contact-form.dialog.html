@@ -1,12 +1,8 @@
 <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <app-modal-shell [title]="data.title" [icon]="data.icon" (close)="dialogRef.close(false)">
+    
     <div modal-body>
-      <div class="modal-card">
-
-        <h6 class="section-title">
-          <mat-icon class="section-icon">badge</mat-icon>
-          Dados do contato
-        </h6>
+      <app-panel variant="dashboard" title="Dados do Contato" icon="badge">
 
         <div class="form-row">
           <div class="field col-full">
@@ -26,14 +22,9 @@
             <input class="field-control" formControlName="department" placeholder="Ex.: Suprimentos">
           </div>
         </div>
-      </div>
+      </app-panel>
 
-      <div class="modal-card">
-        <h6 class="section-title channels-section-title">
-          <mat-icon class="section-icon">contact_phone</mat-icon>
-          Canais de contato
-        </h6>
-
+      <app-panel title="Canais de Contato" icon="contact_phone">
         <div formArrayName="channels">
           <div class="form-row channel-row" *ngFor="let channel of channels.controls; let i = index"
             [formGroupName]="i">
@@ -62,12 +53,12 @@
         
         <app-btn-primary title="Editar canal" icon="add" (clicked)="addChannel()"></app-btn-primary>
 
-      </div>
+      </app-panel>
     </div>
 
     <div modal-footer>
       <app-btn-secundary type="button" title="Cancelar" (clicked)="dialogRef.close(false)"></app-btn-secundary>
-      <app-btn-primary type="submit" title="Editar cliente" icon="save" [disabled]="loading"></app-btn-primary>
+      <app-btn-primary type="submit" title="Salvar" icon="save" [disabled]="loading"></app-btn-primary>
     </div>
   </app-modal-shell>  
 </form>

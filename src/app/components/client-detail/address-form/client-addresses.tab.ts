@@ -4,13 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
-import { ClientService } from '../../services/client/client.services';
-import { UtilsService } from '../../services/utils/utils.service';
-import { ConfirmDialogComponent } from '../../ux/confirm-dialog/confirm-dialog';
-import { EmptyStateComponent } from '../../ux/empty-state/empty-state.ux';
+import { ClientService } from '../../../services/client/client.services';
+import { UtilsService } from '../../../services/utils/utils.service';
+import { ConfirmDialogComponent } from '../../../ux/confirm-dialog/confirm-dialog';
+import { EmptyStateComponent } from '../../../ux/empty-state/empty-state.ux';
 import { AddressFormDialog } from './address-form.dialog';
-import { MESSAGE_SUCCESS_DELETE, MESSAGE_ERROR_GENERIC } from '../../constants/messages';
-import { BtnPrimaryComponent } from '../../ux/btn/btn-primary/btn-primary.ux';
+import { MESSAGE_SUCCESS_DELETE, MESSAGE_ERROR_GENERIC } from '../../../constants/messages';
+import { BtnPrimaryComponent } from '../../../ux/btn/btn-primary/btn-primary.ux';
 
 /**
  * Aba de endereços do cliente.
@@ -128,9 +128,16 @@ export class ClientAddressesTab implements OnInit {
    */
   openForm(address: any = null) {
     const ref = this.dialog.open(AddressFormDialog, {
-      width: '70vw',
+      width: '90vw',
+      maxWidth: '90vw',
+      height: '100vh',
+      maxHeight: '100vh',
+
       panelClass: 'client-detail-dialog',
-      data: { clientId: this.clientId, address }
+      data: { 
+        clientId: this.clientId,
+        address
+      }
     });
 
     ref.afterClosed().subscribe((saved) => {

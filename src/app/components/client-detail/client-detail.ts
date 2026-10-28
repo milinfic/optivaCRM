@@ -12,7 +12,7 @@ import { CardComponent } from '../../ux/card/card.ux';
 import { DetailRowComponent } from '../../ux/detail-row/detail-row.ux';
 import { PanelComponent } from '../../ux/panel/panel.ux';
 
-import { ClientAddressesTab } from './client-addresses.tab';
+import { ClientAddressesTab } from './address-form/client-addresses.tab';
 import { ClientContactsTab } from './contact-form/client-contacts.tab';
 import { ClientDocumentsTab } from './client-documents.tab';
 import { ClientHistoryTab } from './client-history.tab';

@@ -150,6 +150,14 @@ html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .field-control {
   background-color: #e6e9ee94 !important;
   color: #334155 !important;
 }
+html:not(.theme-dark):not(.theme-blue):not(.theme-white) body input[type="checkbox"]:not(:checked) {
+  border-color: #A6A7AC !important;
+}
+html body select,
+html body select.field-control,
+html body .field select.field-control {
+  background-color: transparent !important;
+}
 html:not(.theme-dark):not(.theme-blue):not(.theme-white) body .field-control::placeholder {
   color: #64748B !important;
   opacity: 1;

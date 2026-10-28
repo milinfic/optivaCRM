@@ -14,6 +14,7 @@ import { MESSAGE_SUCCESS_CREATE, MESSAGE_ERROR_GENERIC } from '../../../constant
 import { ModalShellComponent } from '../../../ux/modal/shell/modal.shell.ux';
 import { BtnPrimaryComponent } from '../../../ux/btn/btn-primary/btn-primary.ux';
 import { BtnSecundaryComponent } from '../../../ux/btn/btn-secundary/btn-secundary.ux';
+import { PanelComponent } from '../../../ux/panel/panel.ux';
 
 /**
  * Diálogo de cadastro/edição de contato (padrão Optiva).
@@ -31,7 +32,8 @@ import { BtnSecundaryComponent } from '../../../ux/btn/btn-secundary/btn-secunda
     MatIconModule,
     ModalShellComponent,
     BtnPrimaryComponent,
-    BtnSecundaryComponent
+    BtnSecundaryComponent,
+    PanelComponent
   ],
   templateUrl: './contact-form.dialog.html'
 })

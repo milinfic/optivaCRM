@@ -159,7 +159,6 @@ select,
 textarea {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 ::selection { background: var(--vsc-selection); color: #fff; }
 
 app-root,
@@ -302,6 +301,9 @@ textarea {
   color: #f0f0f0 !important;
   caret-color: #fff;
 }
+html.theme-dark body select,
+html.theme-dark body select.field-control { background-color: transparent !important; }
+html.theme-dark body input[type="checkbox"]:not(:checked) { border-color: #555 !important; }
 .field .field-control::placeholder,
 .field-control::placeholder,
 input::placeholder,

@@ -7,3 +7,6 @@
 @import './styles/tables.css';
 @import './styles/list-pages.css';
 @import './styles/responsive.css';
+select {
+  background-color: transparent;
+}

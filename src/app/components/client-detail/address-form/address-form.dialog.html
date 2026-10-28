@@ -1,0 +1,68 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-modal-shell 
+  [title]="isEdit ? 'Editar endereço' : 'Novo endereço'"
+  [icon]="'place'"
+  (close)="dialogRef.close(false)">
+
+    <div modal-body>
+      <app-panel title="Logradouro" icon="map">
+
+        <div class="form-row">
+          <div class="field col-2">
+            <label>Logradouro *</label>
+            <input class="field-control" formControlName="street" placeholder="Rua, avenida...">
+          </div>
+
+          <div class="field col">
+            <label>Número</label>
+            <input class="field-control" formControlName="number" placeholder="Nº">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field col">
+            <label>Complemento</label>
+            <input class="field-control" formControlName="complement" placeholder="Sala, andar...">
+          </div>
+
+          <div class="field col">
+            <label>Bairro</label>
+            <input class="field-control" formControlName="district">
+          </div>
+
+          <div class="field col">
+            <label>CEP</label>
+            <input class="field-control" formControlName="zip_code" placeholder="00000-000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field col">
+            <label>Tipo</label>
+            <select class="field-control" formControlName="address_type_id">
+              <option [ngValue]="null">--</option>
+              <option *ngFor="let t of addressTypes" [ngValue]="t.id">{{ t.type }}</option>
+            </select>
+          </div>
+
+          <div class="field col-2">
+            <label>Referência</label>
+            <input class="field-control" formControlName="reference" placeholder="Ponto de referência">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox" formControlName="is_default">
+            Endereço Padrão
+          </label>
+        </div>
+      </app-panel>
+    </div>
+
+    <div modal-footer>
+      <app-btn-secundary type="button" title="Cancelar" (clicked)="dialogRef.close(false)"></app-btn-secundary>
+      <app-btn-primary type="submit" title="Salvar" icon="save" [disabled]="loading"></app-btn-primary>    
+    </div>
+  </app-modal-shell>
+</form>

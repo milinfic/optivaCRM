@@ -1,4 +1,4 @@
-:host { display: block; min-width: 0; }
+:host { display: block; min-width: 0; margin-bottom: 10px;}
 
 .panel-shell {
   padding: 14px;
